@@ -1,0 +1,3 @@
+/*C4*/SET SCHEMA PUBLIC
+ALTER TABLE votante ADD COLUMN mesa integer not null
+DISCONNECT

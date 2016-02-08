@@ -1,3 +1,5 @@
+package main.java.es.uniovi.asw.logica;
+
 
 
 /**
@@ -7,14 +9,14 @@
  */
 public class Votante {
 
-	public String nombre; //Nombre y apellidos del votante
-	public String email; //Correo electrónico del votante
-	public String nif; //Número de identificación fiscal del votante
-	public int codigoColegio; //Código del colegio electoral al que tiene que acudir el votante
-	public int mesa; //Mesa del colegio electoral a la que tiene que acudir el votante
-	public String usuario; //Nombre de usuario del votante para acceder al sistema
-	public String clave; //Clave del votante para acceder al sistema
-	public boolean ejercioDerechoAlVoto; //Atributo booleano que indica si el usuario ha votado o no
+	private String nombre; //Nombre y apellidos del votante
+	private String email; //Correo electrónico del votante
+	private String nif; //Número de identificación fiscal del votante
+	private int codigoColegio; //Código del colegio electoral al que tiene que acudir el votante
+	private int mesa; //Mesa del colegio electoral a la que tiene que acudir el votante
+	private String usuario; //Nombre de usuario del votante para acceder al sistema
+	private String clave; //Clave del votante para acceder al sistema
+	private boolean ejercioDerechoAlVoto; //Atributo booleano que indica si el usuario ha votado o no
 	
 	
 

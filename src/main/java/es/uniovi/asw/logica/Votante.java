@@ -9,7 +9,7 @@ public class Votante {
 
 	public String nombre; //Nombre y apellidos del votante
 	public String email; //Correo electrónico del votante
-	public String NIF; //Número de identificación fiscal del votante
+	public String nif; //Número de identificación fiscal del votante
 	public int codigoColegio; //Código del colegio electoral al que tiene que acudir el votante
 	public int mesa; //Mesa del colegio electoral a la que tiene que acudir el votante
 	public String usuario; //Nombre de usuario del votante para acceder al sistema
@@ -17,6 +17,32 @@ public class Votante {
 	public boolean ejercioDerechoAlVoto; //Atributo booleano que indica si el usuario ha votado o no
 	
 	
+
+	/**
+	 * Constructor con parámetros de la clase Votante
+	 * @param nombre y apellidos del votante
+	 * @param email Correo electrónico del votante
+	 * @param nif Número de identificación fiscal del votante
+	 * @param codigoColegio Código del colegio electoral al que tiene que acudir el votante
+	 * @param mesa Mesa del colegio electoral a la que tiene que acudir el votante
+	 * @param usuario Nombre de usuario del votante para acceder al sistema
+	 * @param clave Clave del votante para acceder al sistema
+	 * @param ejercioDerechoAlVoto indica si el usuario ha votado o no	
+	 * 
+	 */
+	public Votante(String nombre, String email, String nif, int codigoColegio, int mesa, String usuario,
+			String clave, boolean ejercioDerechoAlVoto) {
+		super();
+		this.nombre = nombre;
+		this.email = email;
+		this.nif = nif;
+		this.codigoColegio = codigoColegio;
+		this.mesa = mesa;
+		this.usuario = usuario;
+		this.clave = clave;
+		this.ejercioDerechoAlVoto = ejercioDerechoAlVoto;
+	}
+
 	/**
 	 * Método que modifica el valor del atributo nombre.
 	 * @param nombre del votante
@@ -54,8 +80,8 @@ public class Votante {
 	 * Método que modifica el valor del atributo NIF.
 	 * @param nif del votante
 	 */
-	public void setNIF(String nif){
-		this.NIF=nif;
+	public void setNif(String nif){
+		this.nif=nif;
 	}
 	
 	
@@ -63,8 +89,8 @@ public class Votante {
 	 * Método que obtiene el valor del atributo NIF.
 	 * @return NIF del votante
 	 */
-	public String getNIF(){
-		return NIF;
+	public String getNif(){
+		return nif;
 	}
 	
 	/**
@@ -155,7 +181,7 @@ public class Votante {
 	@Override
 	public String toString() {
 		return "Votante [nombre=" + nombre + ", email=" + email + ", NIF="
-				+ NIF + ", codigoColegio=" + codigoColegio + ", mesa=" + mesa
+				+ nif + ", codigoColegio=" + codigoColegio + ", mesa=" + mesa
 				+ ", usuario=" + usuario + ", clave=" + clave
 				+ ", ejercioDerechoAlVoto=" + ejercioDerechoAlVoto + "]";
 	}

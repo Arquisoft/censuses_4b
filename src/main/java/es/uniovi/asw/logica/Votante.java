@@ -21,7 +21,7 @@ public class Votante {
 	
 
 	/**
-	 * Constructor con parámetros de la clase Votante
+	 * Constructor con todos los parámetros de la clase Votante.
 	 * @param nombre y apellidos del votante
 	 * @param email Correo electrónico del votante
 	 * @param nif Número de identificación fiscal del votante
@@ -44,6 +44,32 @@ public class Votante {
 		this.clave = clave;
 		this.ejercioDerechoAlVoto = ejercioDerechoAlVoto;
 	}
+	
+	
+	
+	/**
+	 * Constructor con parámetros de la clase Votante sin generar usuario y clave.
+	 * @param nombre y apellidos del votante
+	 * @param email Correo electrónico del votante
+	 * @param nif Número de identificación fiscal del votante
+	 * @param codigoColegio Código del colegio electoral al que tiene que acudir el votante
+	 * @param mesa Mesa del colegio electoral a la que tiene que acudir el votante
+	 * 
+	 */
+	public Votante(String nombre, String email, String nif, int codigoColegio, int mesa) {
+		super();
+		this.nombre = nombre;
+		this.email = email;
+		this.nif = nif;
+		this.codigoColegio = codigoColegio;
+		this.mesa = mesa;
+		this.usuario = ""; //aún no se ha generado el usuario 
+		this.clave = ""; //aún no se ha generado el usuario
+		this.ejercioDerechoAlVoto = false; //el votante aún no ha votado
+	}
+	
+	
+	
 
 	/**
 	 * Método que modifica el valor del atributo nombre.

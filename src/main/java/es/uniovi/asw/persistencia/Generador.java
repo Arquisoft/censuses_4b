@@ -13,16 +13,17 @@ public class Generador {
 	/**
 	 * Metodo principal que genera la carta
 	 * @param votante
-	 * @throws FileNotFoundException
+	 * @throws IOException 
 	 */
-	public void generarCarta(Votante votante) throws FileNotFoundException {
-		
-		PrintWriter carta = new PrintWriter (obtenerNombreFichero(votante) + ".txt");
-		
-		carta.println("Usuario: " + generarUsuario(votante));
-		carta.println("Contraseña: " + generarPassword(votante));
-		
-		carta.close();
+	public void generarCarta(Votante votante) throws IOException {
+
+        BufferedWriter carta = new BufferedWriter(new FileWriter(new 
+        		File(obtenerNombreFichero(votante) + ".txt")));
+            
+        carta.write("Usuario: " + generarUsuario(votante));
+		carta.write("Contraseña: " + generarPassword(votante));
+        
+		carta.close();		
 	}
 	
 	/**

@@ -1,11 +1,20 @@
 package main.java.es.uniovi.asw.persistencia;
 
 import java.io.*;
-
 import main.java.es.uniovi.asw.logica.Votante;
 
+/**
+ * Clase que genera las cartas de los votantes con su usuario y su clave
+ * 
+ * @author Adrian
+ */
 public class Generador {
 
+	/**
+	 * Metodo principal que genera la carta
+	 * @param votante
+	 * @throws FileNotFoundException
+	 */
 	public void generarCarta(Votante votante) throws FileNotFoundException {
 		
 		PrintWriter carta = new PrintWriter (obtenerNombreFichero(votante) + ".txt");
@@ -16,6 +25,11 @@ public class Generador {
 		carta.close();
 	}
 	
+	/**
+	 * Método que genera la clave del usuario
+	 * @param votante
+	 * @return pass, devuelve la clave
+	 */
 	private String generarPassword(Votante votante) {
 
 		String pass = votante.getNombre() + "." + votante.getNif();
@@ -25,6 +39,11 @@ public class Generador {
 		return pass;
 	}
 
+	/**
+	 * Método que genera un código aleatorio para aumentar la complejidad 
+	 * de la clave
+	 * @return codigo
+	 */
 	private String generarValoresClave() {
 
 		int i, valor;
@@ -44,11 +63,21 @@ public class Generador {
 		return new String(codigo);
 	}
 
+	/**
+	 * Devuelve el nombre de la carta, que será su dni
+	 * @param votante
+	 * @return dni del votante
+	 */
 	private String obtenerNombreFichero(Votante votante) {
 		
 		return votante.getNif();
 	}
 
+	/**
+	 * Genera el usuario que estará compuesto por el nombre y el email
+	 * @param votante
+	 * @return usuario
+	 */
 	private String generarUsuario(Votante votante) {
 		
 		return votante.getNombre() + "." + votante.getEmail();

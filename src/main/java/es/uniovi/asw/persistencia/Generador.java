@@ -1,3 +1,5 @@
+package main.java.es.uniovi.asw.persistencia;
+
 import java.io.*;
 
 import main.java.es.uniovi.asw.logica.Votante;

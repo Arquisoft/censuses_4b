@@ -1,4 +1,4 @@
-package asw.asw;
+package main.java.es.uniovi.asw.parser;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;

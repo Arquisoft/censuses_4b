@@ -5,7 +5,6 @@ import static org.junit.Assert.assertEquals;
 import org.junit.Test;
 
 import main.java.es.uniovi.asw.logica.Votante;
-import main.java.es.uniovi.asw.persistencia.Generador;
 
 /**
  * Clase para comprobar el funcionamiento del generador de cartas
@@ -19,6 +18,8 @@ public class GeneradorCartasTest {
 	@Test
 	public void crearCartas() {
 		
+		int expected = 3 + 2;
 		
+		assertEquals(5, expected);
 	}
 }

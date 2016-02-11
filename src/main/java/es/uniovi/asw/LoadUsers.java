@@ -1,6 +1,5 @@
 package es.uniovi.asw;
 
-import java.util.logging.Logger;
 
 /**
  * Main application

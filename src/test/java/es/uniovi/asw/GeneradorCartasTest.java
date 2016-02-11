@@ -16,9 +16,9 @@ import es.uniovi.asw.persistencia.*;
  */
 public class GeneradorCartasTest {
 
-	private Votante votante1 = new Votante("Lumbreras", "lumbreras@email.com", "1111111A", 10, 5);
-	private Votante votante2 = new Votante("Monica", "monica@email.com", "22222222B", 12, 2);
-	private Votante votante3 = new Votante("Ana", "ana@email.com", "33333333C", 15, 1);
+	private Votante votante1 = new Votante("Lumbreras", "lumbreras@email.com", "1111111A", 10);
+	private Votante votante2 = new Votante("Monica", "monica@email.com", "22222222B", 12);
+	private Votante votante3 = new Votante("Ana", "ana@email.com", "33333333C", 15);
 
 	@Test
 	public void crearCartasTest() throws IOException {

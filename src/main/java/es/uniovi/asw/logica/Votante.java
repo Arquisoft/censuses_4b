@@ -13,7 +13,6 @@ public class Votante {
 	private String email; //Correo electrónico del votante
 	private String nif; //Número de identificación fiscal del votante
 	private int codigoColegio; //Código del colegio electoral al que tiene que acudir el votante
-	private int mesa; //Mesa del colegio electoral a la que tiene que acudir el votante
 	private String usuario; //Nombre de usuario del votante para acceder al sistema
 	private String clave; //Clave del votante para acceder al sistema
 	private boolean ejercioDerechoAlVoto; //Atributo booleano que indica si el usuario ha votado o no
@@ -32,14 +31,13 @@ public class Votante {
 	 * @param ejercioDerechoAlVoto indica si el usuario ha votado o no	
 	 * 
 	 */
-	public Votante(String nombre, String email, String nif, int codigoColegio, int mesa, String usuario,
+	public Votante(String nombre, String email, String nif, int codigoColegio, String usuario,
 			String clave, boolean ejercioDerechoAlVoto) {
 		super();
 		this.nombre = nombre;
 		this.email = email;
 		this.nif = nif;
 		this.codigoColegio = codigoColegio;
-		this.mesa = mesa;
 		this.usuario = usuario;
 		this.clave = clave;
 		this.ejercioDerechoAlVoto = ejercioDerechoAlVoto;
@@ -56,18 +54,16 @@ public class Votante {
 	 * @param mesa Mesa del colegio electoral a la que tiene que acudir el votante
 	 * 
 	 */
-	public Votante(String nombre, String email, String nif, int codigoColegio, int mesa) {
+	public Votante(String nombre, String email, String nif, int codigoColegio) {
 		super();
 		this.nombre = nombre;
 		this.email = email;
 		this.nif = nif;
 		this.codigoColegio = codigoColegio;
-		this.mesa = mesa;
 		this.usuario = ""; //a�n no se ha generado el usuario 
 		this.clave = ""; //a�n no se ha generado el usuario
 		this.ejercioDerechoAlVoto = false; //el votante a�n no ha votado
 	}
-	
 	
 	
 
@@ -138,21 +134,6 @@ public class Votante {
 		return codigoColegio;
 	}
 	
-	/**
-	 * M�todo que modifica el valor del atributo mesa.
-	 * @param mesa a la que tiene que ir el votante
-	 */
-	public void setMesa(int mesa){
-		this.mesa=mesa;
-	}
-	
-	/**
-	 * M�todo que obtiene el valor del atributo mesa.
-	 * @return mesa a la que tiene que el votante
-	 */
-	public int getMesa(){
-		return mesa;
-	}
 	
 	/**
 	 * M�todo que modifica el valor del atributo usuario.
@@ -209,7 +190,7 @@ public class Votante {
 	@Override
 	public String toString() {
 		return "Votante [nombre=" + nombre + ", email=" + email + ", NIF="
-				+ nif + ", codigoColegio=" + codigoColegio + ", mesa=" + mesa
+				+ nif + ", codigoColegio=" + codigoColegio 
 				+ ", usuario=" + usuario + ", clave=" + clave
 				+ ", ejercioDerechoAlVoto=" + ejercioDerechoAlVoto + "]";
 	}

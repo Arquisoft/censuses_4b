@@ -9,6 +9,16 @@ import es.uniovi.asw.logica.Votante;
  * @author Adrian
  */
 public class Generador {
+		
+	/**
+	 * Constructor de la clase
+	 * @param votante
+	 * @throws IOException
+	 */
+	public Generador(Votante votante) throws IOException {
+		
+		generarCarta(votante);
+	}
 
 	/**
 	 * Metodo principal que genera la carta
@@ -21,7 +31,7 @@ public class Generador {
         		File(obtenerNombreFichero(votante) + ".txt")));
             
         carta.write("Usuario: " + generarUsuario(votante));
-		carta.write("Contrase�a: " + generarPassword(votante));
+		carta.write("\nClave: " + generarPassword(votante));
         
 		carta.close();		
 	}
@@ -51,10 +61,10 @@ public class Generador {
 		char[] codigo = new char[5];
 		char[] elementos = {'0','1','2','3','4','5','6','7','8','9',
 						'a','b','c','d','e','f','g','h','i','j','k','l','m','n',
-						'�','o','p','q','r','s','t','u','v','w','x','y','z',
+						'o','p','q','r','s','t','u','v','w','x','y','z',
 						'A','B','C','D','E','F','G','H','I','J','K','L','M','N',
-						'�','O','P','Q','R','S','T','U','V','W','X','Y','Z',
-						'*','+','.',',','�','�'};
+						'O','P','Q','R','S','T','U','V','W','X','Y','Z',
+						'*','+','.',','};
 		
 		for(i = 0; i < codigo.length; i++){
 			valor = (int)(Math.random() * elementos.length);

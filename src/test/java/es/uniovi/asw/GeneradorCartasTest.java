@@ -2,9 +2,12 @@ package es.uniovi.asw;
 
 import static org.junit.Assert.*;
 
+import java.io.IOException;
+
 import org.junit.Test;
 
 import es.uniovi.asw.logica.Votante;
+import es.uniovi.asw.persistencia.*;
 
 /**
  * Clase para comprobar el funcionamiento del generador de cartas
@@ -13,16 +16,29 @@ import es.uniovi.asw.logica.Votante;
  */
 public class GeneradorCartasTest {
 
-	private Votante votante = new Votante("Lumbreras", "lumbreras@email.com", "123456789A", 10, 5);
-	private Votante votante2 = new Votante("Monica", "monica@email.com", "125456789A", 12, 5);
-	private Votante votante3 = new Votante("Ana", "ana@email.com", "145456789A", 12, 5);
+	private Votante votante1 = new Votante("Lumbreras", "lumbreras@email.com", "1111111A", 10, 5);
+	private Votante votante2 = new Votante("Monica", "monica@email.com", "22222222B", 12, 2);
+	private Votante votante3 = new Votante("Ana", "ana@email.com", "33333333C", 15, 1);
 
 	@Test
-	public void crearCartas() {
+	public void crearCartasTest() throws IOException {
 				
-		assertEquals("Lumbreras", votante.getNombre());
+		assertEquals("Lumbreras", votante1.getNombre());
 		assertEquals("Monica", votante2.getNombre());
 		assertEquals("Ana", votante3.getNombre());
+		
+		assertEquals("lumbreras@email.com", votante1.getEmail());
+		assertEquals("monica@email.com", votante2.getEmail());
+		assertEquals("ana@email.com", votante3.getEmail());
+		
+		assertEquals("1111111A", votante1.getNif());
+		assertEquals("22222222B", votante2.getNif());
+		assertEquals("33333333C", votante3.getNif());
+		
+		Generador Lum = new Generador(votante1);
+		Generador Monica = new Generador(votante2);
+		Generador Ana = new Generador(votante3);
+		
 	}
 	
 }

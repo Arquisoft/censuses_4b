@@ -1,10 +1,10 @@
-package test.java.es.uniovi.asw;
+package es.uniovi.asw;
 
 import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-import main.java.es.uniovi.asw.logica.Votante;
+import es.uniovi.asw.logica.Votante;
 
 /**
  * Clase para comprobar el funcionamiento del generador de cartas

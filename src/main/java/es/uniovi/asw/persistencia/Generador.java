@@ -1,7 +1,7 @@
-package main.java.es.uniovi.asw.persistencia;
+package es.uniovi.asw.persistencia;
 
 import java.io.*;
-import main.java.es.uniovi.asw.logica.Votante;
+import es.uniovi.asw.logica.Votante;
 
 /**
  * Clase que genera las cartas de los votantes con su usuario y su clave
@@ -21,13 +21,13 @@ public class Generador {
         		File(obtenerNombreFichero(votante) + ".txt")));
             
         carta.write("Usuario: " + generarUsuario(votante));
-		carta.write("Contraseña: " + generarPassword(votante));
+		carta.write("Contraseï¿½a: " + generarPassword(votante));
         
 		carta.close();		
 	}
 	
 	/**
-	 * Método que genera la clave del usuario
+	 * Mï¿½todo que genera la clave del usuario
 	 * @param votante
 	 * @return pass, devuelve la clave
 	 */
@@ -41,7 +41,7 @@ public class Generador {
 	}
 
 	/**
-	 * Método que genera un código aleatorio para aumentar la complejidad 
+	 * Mï¿½todo que genera un cï¿½digo aleatorio para aumentar la complejidad 
 	 * de la clave
 	 * @return codigo
 	 */
@@ -51,10 +51,10 @@ public class Generador {
 		char[] codigo = new char[5];
 		char[] elementos = {'0','1','2','3','4','5','6','7','8','9',
 						'a','b','c','d','e','f','g','h','i','j','k','l','m','n',
-						'ñ','o','p','q','r','s','t','u','v','w','x','y','z',
+						'ï¿½','o','p','q','r','s','t','u','v','w','x','y','z',
 						'A','B','C','D','E','F','G','H','I','J','K','L','M','N',
-						'Ñ','O','P','Q','R','S','T','U','V','W','X','Y','Z',
-						'*','+','.',',','ç','Ç'};
+						'ï¿½','O','P','Q','R','S','T','U','V','W','X','Y','Z',
+						'*','+','.',',','ï¿½','ï¿½'};
 		
 		for(i = 0; i < codigo.length; i++){
 			valor = (int)(Math.random() * elementos.length);
@@ -65,7 +65,7 @@ public class Generador {
 	}
 
 	/**
-	 * Devuelve el nombre de la carta, que será su dni
+	 * Devuelve el nombre de la carta, que serï¿½ su dni
 	 * @param votante
 	 * @return dni del votante
 	 */
@@ -75,7 +75,7 @@ public class Generador {
 	}
 
 	/**
-	 * Genera el usuario que estará compuesto por el nombre y el email
+	 * Genera el usuario que estarï¿½ compuesto por el nombre y el email
 	 * @param votante
 	 * @return usuario
 	 */

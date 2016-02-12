@@ -2,6 +2,8 @@ package es.uniovi.asw;
 
 import java.util.logging.Logger;
 
+import es.uniovi.asw.parser.LeerFichero;
+
 /**
  * Main application
  * 
@@ -9,6 +11,7 @@ import java.util.logging.Logger;
  *
  */
 public class LoadUsers {
+	
 
 	public static void main(String... args) {
 		LoadUsers runner = new LoadUsers();
@@ -17,6 +20,12 @@ public class LoadUsers {
 
 	// TODO
 	void run(String... args) {
-		System.out.println("TODO");
+	try {
+		System.out.println("Hooola");
+		LeerFichero lf = new LeerFichero();
+		lf.readXLSXFile();
+	} catch (Exception e) {
+		System.out.println("Excepcion..." + e);
+	}	
 	}
 }

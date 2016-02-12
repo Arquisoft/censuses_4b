@@ -1,4 +1,4 @@
-package main.java.es.uniovi.asw.persistencia;
+package es.uniovi.asw.persistencia;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -8,12 +8,12 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-import main.java.es.uniovi.asw.logica.Votante;
+import es.uniovi.asw.logica.Votante;
 
 /**
  * Clase que gestiona la base de datos de los censos
  * 
- * @author Mónica
+ * @author Mï¿½nica
  *
  */
 public class GestionBD {
@@ -24,8 +24,8 @@ public class GestionBD {
 	ResultSet rs;
 
 	/**
-	 * Constructor sin parámetros de GestionBD Inicializa la lista de votantes,
-	 * crea la conexión, carga los datos del votante y cierra la coneción.
+	 * Constructor sin parï¿½metros de GestionBD Inicializa la lista de votantes,
+	 * crea la conexiï¿½n, carga los datos del votante y cierra la coneciï¿½n.
 	 */
 	public GestionBD() {
 		super();
@@ -36,7 +36,7 @@ public class GestionBD {
 	}
 
 	/**
-	 * Método que crea la conexión con la base de datos hsqldb.
+	 * Mï¿½todo que crea la conexiï¿½n con la base de datos hsqldb.
 	 */
 	public void crearConexion() {
 		try {
@@ -48,7 +48,7 @@ public class GestionBD {
 	}
 
 	/**
-	 * Método que almacena los datos del votante de la base de datos en la lista
+	 * Mï¿½todo que almacena los datos del votante de la base de datos en la lista
 	 * de votantes.
 	 */
 	public void cargarDatosVotante() {
@@ -84,10 +84,10 @@ public class GestionBD {
 	}
 
 	/**
-	 * Método que almacena en la base de datos el usuario y clave del votante.
+	 * Mï¿½todo que almacena en la base de datos el usuario y clave del votante.
 	 * @param usuario del votante
 	 * @param clave del votante
-	 * @param nif Número de identificación fiscal del votante
+	 * @param nif Nï¿½mero de identificaciï¿½n fiscal del votante
 	 */
 	public void guardarUsuarioYClave(String usuario, String clave, String nif){
 		
@@ -107,12 +107,12 @@ public class GestionBD {
 	
 
 	/**
-	 * Método que almacena en la base de datos al votante del censo.
+	 * Mï¿½todo que almacena en la base de datos al votante del censo.
 	 * Inicialmente, no hay ni usuario ni clave, y el votante no ha votado.
 	 * @param nombre y apellidos del votante
 	 * @param email del votante
-	 * @param nif Número de identificación fiscal del votante
-	 * @param codigoColegio Código del colegio electoral al que tiene que acudir el votante
+	 * @param nif Nï¿½mero de identificaciï¿½n fiscal del votante
+	 * @param codigoColegio Cï¿½digo del colegio electoral al que tiene que acudir el votante
 	 * @param mesa Mesa del colegio electoral a la que tiene que acudir el votante
 	 */
 	public void guardarVotanteCenso(String nombre, String email, String nif, int codigoColegio, int mesa){
@@ -134,7 +134,7 @@ public class GestionBD {
 	
 	
 	/**
-	 * Método que cierra la conexión.
+	 * Mï¿½todo que cierra la conexiï¿½n.
 	 */
 	private void cerrarConexion() {
 		try {

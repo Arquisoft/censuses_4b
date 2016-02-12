@@ -1,0 +1,3 @@
+/*C3*/SET SCHEMA PUBLIC
+alter table votante drop mesa\u000a
+DISCONNECT

@@ -22,13 +22,10 @@ public class Votante {
 	/**
 	 * Constructor con todos los par�metros de la clase Votante.
 	 * @param nombre y apellidos del votante
-<<<<<<< HEAD
 	 * @param email Correo electr�nico del votante
 	 * @param nif N�mero de identificaci�n fiscal del votante
-=======
 	 * @param email Correo electrónico del votante
 	 * @param nif N�mero de identificación fiscal del votante
->>>>>>> branch 'master' of https://github.com/Arquisoft/censuses_4b.git
 	 * @param codigoColegio C�digo del colegio electoral al que tiene que acudir el votante
 	 * @param mesa Mesa del colegio electoral a la que tiene que acudir el votante
 	 * @param usuario Nombre de usuario del votante para acceder al sistema

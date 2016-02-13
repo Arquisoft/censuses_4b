@@ -20,13 +20,13 @@ public class Votante {
 	
 
 	/**
-	 * Constructor con todos los par�metros de la clase Votante.
+	 * Constructor con todos los parámetros de la clase Votante.
 	 * @param nombre y apellidos del votante
-	 * @param email Correo electr�nico del votante
-	 * @param nif N�mero de identificaci�n fiscal del votante
+	 * @param email Correo electónico del votante
+	 * @param nif Número de identificación fiscal del votante
 	 * @param email Correo electrónico del votante
-	 * @param nif N�mero de identificación fiscal del votante
-	 * @param codigoColegio C�digo del colegio electoral al que tiene que acudir el votante
+	 * @param nif Número de identificación fiscal del votante
+	 * @param codigoColegio Código del colegio electoral al que tiene que acudir el votante
 	 * @param mesa Mesa del colegio electoral a la que tiene que acudir el votante
 	 * @param usuario Nombre de usuario del votante para acceder al sistema
 	 * @param clave Clave del votante para acceder al sistema
@@ -48,11 +48,11 @@ public class Votante {
 	
 	
 	/**
-	 * Constructor con par�metros de la clase Votante sin generar usuario y clave.
+	 * Constructor con parámetros de la clase Votante sin generar usuario y clave.
 	 * @param nombre y apellidos del votante
 	 * @param email Correo electr�nico del votante
-	 * @param nif N�mero de identificaci�n fiscal del votante
-	 * @param codigoColegio C�digo del colegio electoral al que tiene que acudir el votante
+	 * @param nif Número de identificación fiscal del votante
+	 * @param codigoColegio Código del colegio electoral al que tiene que acudir el votante
 	 * @param mesa Mesa del colegio electoral a la que tiene que acudir el votante
 	 * 
 	 */
@@ -62,15 +62,15 @@ public class Votante {
 		this.email = email;
 		this.nif = nif;
 		this.codigoColegio = codigoColegio;
-		this.usuario = ""; //a�n no se ha generado el usuario 
-		this.clave = ""; //a�n no se ha generado el usuario
-		this.ejercioDerechoAlVoto = false; //el votante a�n no ha votado
+		this.usuario = ""; //aún no se ha generado el usuario
+		this.clave = ""; //aún no se ha generado el usuario
+		this.ejercioDerechoAlVoto = false; //el votante aún no ha votado
 	}
 	
 	
 
 	/**
-	 * M�todo que modifica el valor del atributo nombre.
+	 * Método que modifica el valor del atributo nombre.
 	 * @param nombre del votante
 	 */
 	public void setNombre(String nombre){
@@ -78,7 +78,7 @@ public class Votante {
 	}
 	
 	/**
-	 * M�todo que obtiene el valor del atributo nombre.
+	 * Método que obtiene el valor del atributo nombre.
 	 * @return nombre del votante
 	 */
 	public String getNombre(){
@@ -87,7 +87,7 @@ public class Votante {
 	
 	
 	/**
-	 * M�todo que modifica el valor del atributo email.
+	 * Método que modifica el valor del atributo email.
 	 * @param email del votante
 	 */
 	public void setEmail(String email){
@@ -95,7 +95,7 @@ public class Votante {
 	}
 	
 	/**
-	 * M�todo que obtiene el valor del atributo email.
+	 * Método que obtiene el valor del atributo email.
 	 * @return email del votante
 	 */
 	public String getEmail(){
@@ -103,7 +103,7 @@ public class Votante {
 	}
 	
 	/**
-	 * M�todo que modifica el valor del atributo NIF.
+	 * Método que modifica el valor del atributo NIF.
 	 * @param nif del votante
 	 */
 	public void setNif(String nif){
@@ -112,7 +112,7 @@ public class Votante {
 	
 	
 	/**
-	 * M�todo que obtiene el valor del atributo NIF.
+	 * Método que obtiene el valor del atributo NIF.
 	 * @return NIF del votante
 	 */
 	public String getNif(){
@@ -120,7 +120,7 @@ public class Votante {
 	}
 	
 	/**
-	 * M�todo que modifica el valor del atributo codigoColegio.
+	 * Método que modifica el valor del atributo codigoColegio.
 	 * @param cod codigo del colegio al que tiene que ir el votante
 	 */
 	public void setCodigoColegio(int cod){
@@ -129,7 +129,7 @@ public class Votante {
 	
 	
 	/**
-	 * M�todo que obtiene el valor del atributo codigoColegio.
+	 * Método que obtiene el valor del atributo codigoColegio.
 	 * @return codigo del colegio al que tiene que ir el votante
 	 */
 	public int getCodigoColegio(){
@@ -138,7 +138,7 @@ public class Votante {
 	
 	
 	/**
-	 * Metodo que modifica el valor del atributo usuario.
+	 * Método que modifica el valor del atributo usuario.
 	 * @param usuario del votante para acceder al sistema
 	 */
 	public void setUsuario(String usuario){
@@ -146,7 +146,7 @@ public class Votante {
 	}
 	
 	/**
-	 * Metodo que obtiene el valor del atributo usuario.
+	 * Método que obtiene el valor del atributo usuario.
 	 * @return usuario del votante para acceder al sistema
 	 */
 	public String getUsuario(){
@@ -154,7 +154,7 @@ public class Votante {
 	}
 	
 	/**
-	 * M�todo que modifica el valor del atributo clave.
+	 * Método que modifica el valor del atributo clave.
 	 * @param clave del votante para acceder al sistema
 	 */
 	public void setClave(String clave){
@@ -162,7 +162,7 @@ public class Votante {
 	}
 	
 	/**
-	 * M�todo que obtiene el valor del atributo clave.
+	 * Método que obtiene el valor del atributo clave.
 	 * @return clave del votante para acceder al sistema
 	 */
 	public String getClave(){
@@ -170,7 +170,7 @@ public class Votante {
 	}
 
 	/**
-	 * M�todo que obtiene el valor del atributo ejercioDerechoAlVoto.
+	 * Método que obtiene el valor del atributo ejercioDerechoAlVoto.
 	 * @return ejercioDerechoAlVoto devuelve true si el votante ha votado, false en caso contrario
 	 */
 	public boolean isEjercioDerechoAlVoto() {
@@ -179,7 +179,7 @@ public class Votante {
 
 	
 	/**
-	 * M�todo que modifica el valor del atributo ejercioDerechoAlVoto.
+	 * Método que modifica el valor del atributo ejercioDerechoAlVoto.
 	 * @param ejercioDerechoAlVoto indica si el votante ha votado o no
 	 */
 	public void setEjercioDerechoAlVoto(boolean ejercioDerechoAlVoto) {
@@ -187,7 +187,7 @@ public class Votante {
 	}
 
 	/**
-	 * M�todo toString que muestra la informaci�n del votante.
+	 * Método toString que muestra la información del votante.
 	 */
 	@Override
 	public String toString() {

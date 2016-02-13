@@ -6,36 +6,46 @@ import java.util.List;
 
 import org.junit.Test;
 
+import es.uniovi.asw.database.impl.BDDaoImpl;
 import es.uniovi.asw.logica.Votante;
-import es.uniovi.asw.persistencia.GestionBD;
 
 public class BDTest {
 
+	/**
+	 * Test que comprueba el correcto funcionamiento de la base de datos.
+	 */
 	@Test
 	public void test() {
-		GestionBD g = new GestionBD();
-		g.guardarVotanteDatosCompletos("Monica Cueva", "monicac@gmail.com", "12151651s", 306, "monicac", "dnjwenk");
-		g.guardarVotanteDatosCompletos("Adrian Garcia", "adriang@gmail.com", "122651651s", 306, "adriang", "rtg");
-		g.guardarVotanteDatosCompletos("Ana Bravo", "anab@gmail.com", "19861651s", 305, "anab", "fre");
+		BDDaoImpl g = new BDDaoImpl();
+		g.updateDB("Monica Cueva", "monicac@gmail.com", "12151651s", 306, "monicac", "dnjwenk");
+		g.updateDB("Adrian Garcia", "adriang@gmail.com", "122651651s", 306, "adriang", "rtg");
+		g.updateDB("Ana Bravo", "anab@gmail.com", "19861651s", 305, "anab", "fre");
 		
 		g.cargarDatosVotante();
 		List<Votante> votantes = g.getVotantes();
-		assertEquals("Monica Cueva", votantes.get(0).getNombre());
-		assertEquals("Adrian Garcia", votantes.get(1).getNombre());
-		assertEquals("Ana Bravo", votantes.get(2).getNombre());
-		assertNotEquals("Ana Bravo", votantes.get(0).getNombre());
-		
-		assertEquals("monicac@gmail.com", votantes.get(0).getEmail());
-		assertEquals("adriang@gmail.com", votantes.get(1).getEmail());
-		assertEquals("anab@gmail.com", votantes.get(2).getEmail());
+		for (Votante votante : votantes) {
+			if(votante.getNif().equals("12151651s")){
+				assertEquals("Monica Cueva", votante.getNombre());
+				assertEquals("monicac@gmail.com", votante.getEmail());
+			}else if(votante.getNif().equals("122651651s")){
+				assertEquals("Adrian Garcia", votante.getNombre());
+				assertEquals("adriang@gmail.com", votante.getEmail());
+			}else if(votante.getNif().equals("19861651s")){
+				assertEquals("anab@gmail.com", votante.getEmail());
+				assertEquals("Ana Bravo", votante.getNombre());
+			}
+		}
 		g.cerrarConexion();
 		
 		g.crearConexion();
-		assertEquals("dnjwenk", votantes.get(0).getClave());
-		g.actualizarClave("monicac", "150ew");
+		g.updatePasswd("monicac", "150ew");
 		g.cargarDatosVotante();
 		votantes = g.getVotantes();
-		assertEquals("150ew", votantes.get(0).getClave());
+		for (Votante votante : votantes) {
+			if(votante.getNif().equals("12151651s")){
+				assertEquals("150ew", votante.getClave());
+			}
+		}	
 		g.cerrarConexion();
 		
 		g.crearConexion();

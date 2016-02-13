@@ -10,9 +10,13 @@ import org.apache.poi.xssf.usermodel.XSSFRow;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
-import es.uniovi.asw.persistencia.GestionBD;
+import es.uniovi.asw.database.BDDao;
+import es.uniovi.asw.database.impl.BDDaoImpl;
+import es.uniovi.asw.factoria.ServicesFactory;
+import es.uniovi.asw.logica.Votante;
 
 public class LeerFichero {
+	
 		public static void readXLSXFile() throws IOException
 	{
 		InputStream ExcelFileToRead = new FileInputStream("test.xlsx");
@@ -26,7 +30,7 @@ public class LeerFichero {
 
 		Iterator rows = sheet.rowIterator();
 		ArrayList<ArrayList<Object>> array= new ArrayList<ArrayList<Object>>();
-		GestionBD g = new GestionBD();
+		BDDaoImpl g = new BDDaoImpl();
 		
 		
 		while (rows.hasNext())
@@ -64,8 +68,13 @@ public class LeerFichero {
 				
 			}
 			System.out.println();
-			g.guardarVotanteDatosCompletos(String.valueOf(array.get(i).get(0)), String.valueOf(array.get(i).get(2)), 
-					String.valueOf(array.get(i).get(1)), Integer.parseInt(String.valueOf(array.get(i).get(3))), "", "");
+			
+			//Creo un nuevo votante con la información del mismo.
+			Votante votante = new Votante(String.valueOf(array.get(i).get(0)), String.valueOf(array.get(i).get(2)),
+					String.valueOf(array.get(i).get(1)), Integer.parseInt(String.valueOf(array.get(i).get(3))),
+					"", "", false);
+			BDDaoImpl dbDao = (BDDaoImpl) ServicesFactory.getBDDAO();
+			dbDao.insert(votante);
 			
 		
 		}

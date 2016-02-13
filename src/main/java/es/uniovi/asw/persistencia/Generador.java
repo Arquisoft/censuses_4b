@@ -37,7 +37,7 @@ public class Generador {
 	}
 	
 	/**
-	 * M�todo que genera la clave del usuario
+	 * Método que genera la clave del usuario
 	 * @param votante
 	 * @return pass, devuelve la clave
 	 */
@@ -51,7 +51,7 @@ public class Generador {
 	}
 
 	/**
-	 * M�todo que genera un c�digo aleatorio para aumentar la complejidad 
+	 * Método que genera un código aleatorio para aumentar la complejidad 
 	 * de la clave
 	 * @return codigo
 	 */
@@ -75,7 +75,7 @@ public class Generador {
 	}
 
 	/**
-	 * Devuelve el nombre de la carta, que ser� su dni
+	 * Devuelve el nombre de la carta, que será su dni
 	 * @param votante
 	 * @return dni del votante
 	 */
@@ -85,7 +85,7 @@ public class Generador {
 	}
 
 	/**
-	 * Genera el usuario que estar� compuesto por el nombre y el email
+	 * Genera el usuario que estará compuesto por el nombre y el email
 	 * @param votante
 	 * @return usuario
 	 */

@@ -1,6 +1,7 @@
-package es.uniovi.asw.parser;
+package es.uniovi.asw.parser.impl;
 
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
@@ -11,22 +12,35 @@ import org.apache.poi.xssf.usermodel.XSSFRow;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
-import es.uniovi.asw.persistencia.GestionBD;
+import es.uniovi.asw.database.impl.BDDaoImpl;
+import es.uniovi.asw.parser.ReadCensus;
 
 /**
  * 
  * @author Ana
  *Clase que lee el fichero excel con los datos de los ciudadanos
  */
-public class LeerFichero {
+public class LeerFichero implements ReadCensus{
 	/**
 	 * Método que lee el fichero excel
 	 * @return Array de un array con los datos de los ciudadanos
-	 * @throws IOException
 	 */
-	public static ArrayList<ArrayList<Object>> readXLSXFile() throws IOException {
-		InputStream ExcelFileToRead = new FileInputStream("test.xlsx");
-		XSSFWorkbook wb = new XSSFWorkbook(ExcelFileToRead);
+	public ArrayList<ArrayList<Object>> readXLSXFile(String ruta) {
+		InputStream ExcelFileToRead;
+		XSSFWorkbook wb =null;
+		try {
+			ExcelFileToRead = new FileInputStream(ruta);
+			try {
+				wb = new XSSFWorkbook(ExcelFileToRead);
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		XSSFWorkbook test = new XSSFWorkbook();
 
 		XSSFSheet sheet = wb.getSheetAt(0);
@@ -71,16 +85,9 @@ public class LeerFichero {
 
 	public void guardarEnBD() {
 		ArrayList<ArrayList<Object>> array = new ArrayList<ArrayList<Object>>();
-		GestionBD g = new GestionBD();
+		BDDaoImpl g = new BDDaoImpl();
 		for (int i = 1; i < array.size(); i++)
 			g.guardarVotanteCenso(String.valueOf(array.get(i).get(0)), String.valueOf(array.get(i).get(2)),
 					String.valueOf(array.get(i).get(1)), Integer.parseInt(String.valueOf(array.get(i).get(3))));
 	}
-
-	public static void main(String[] args) throws IOException {
-
-		readXLSXFile();
-
-	}
-
 }

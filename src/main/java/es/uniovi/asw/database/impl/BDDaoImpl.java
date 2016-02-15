@@ -249,6 +249,22 @@ public class BDDaoImpl implements BDDao {
 		}
 	}
 
+public void guardarVotanteCenso(String nombre, String email, String nif, int codigoColegio){
+		
+		String consulta = "insert into votante values ('"+ nombre +"','"+ email
+				+ "','" + nif + "', "+ codigoColegio +",'" + "" 
+				+ "','" + "" + "',false)";
+		
+		try{
+			st = con.createStatement();
+			rs = st.executeQuery(consulta);
+			rs.close();
+			st.close();
+			
+		}catch(SQLException e){
+			e.printStackTrace();
+		}
+	}
 	/**
 	 * Método que cierra la conexión.
 	 */

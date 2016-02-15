@@ -1,7 +1,7 @@
 package es.uniovi.asw;
 
 
-import es.uniovi.asw.parser.LeerFichero;
+import es.uniovi.asw.parser.impl.LeerFichero;
 
 /**
  * Main application

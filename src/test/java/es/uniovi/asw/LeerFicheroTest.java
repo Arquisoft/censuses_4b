@@ -6,9 +6,10 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import org.junit.Test;
+
+import es.uniovi.asw.database.impl.BDDaoImpl;
 import es.uniovi.asw.logica.Votante;
-import es.uniovi.asw.parser.LeerFichero;
-import es.uniovi.asw.persistencia.GestionBD;
+import es.uniovi.asw.parser.impl.LeerFichero;
 
 public class LeerFicheroTest {
 
@@ -36,7 +37,7 @@ public class LeerFicheroTest {
 		array.add(a3);
 
 		try {
-			assertEquals(lf.readXLSXFile(), array);
+			assertEquals(lf.readXLSXFile("test.xlsx"), array);
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -45,7 +46,7 @@ public class LeerFicheroTest {
 
 	@Test
 	public void testGuardarDatosBDD() {
-		GestionBD g = new GestionBD();
+		BDDaoImpl g = new BDDaoImpl();
 		LeerFichero lf = new LeerFichero();
 		ArrayList<Object> a1 = new ArrayList<Object>();
 		a1.add("Juan Torres Pardo");

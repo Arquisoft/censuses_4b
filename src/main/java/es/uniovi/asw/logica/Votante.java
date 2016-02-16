@@ -50,7 +50,7 @@ public class Votante {
 	/**
 	 * Constructor con parámetros de la clase Votante sin generar usuario y clave.
 	 * @param nombre y apellidos del votante
-	 * @param email Correo electr�nico del votante
+	 * @param email Correo electrónico del votante
 	 * @param nif Número de identificación fiscal del votante
 	 * @param codigoColegio Código del colegio electoral al que tiene que acudir el votante
 	 * @param mesa Mesa del colegio electoral a la que tiene que acudir el votante

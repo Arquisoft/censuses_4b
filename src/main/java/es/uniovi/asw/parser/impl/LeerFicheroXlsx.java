@@ -13,20 +13,35 @@ import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 import es.uniovi.asw.database.impl.BDDaoImpl;
+import es.uniovi.asw.factoria.PersistenceFactory;
 import es.uniovi.asw.logica.Votante;
-import es.uniovi.asw.parser.ReadCensus;
+import es.uniovi.asw.parser.Parser;
 
 /**
  * 
  * @author Ana
  *Clase que lee el fichero excel con los datos de los ciudadanos
  */
-public class LeerFichero implements ReadCensus{
+public class LeerFicheroXlsx  implements Parser{
+	
+	 ArrayList<Votante> votantes;
+	 BDDaoImpl dbDao;
+	
+	
+	public LeerFicheroXlsx() {
+		votantes = new ArrayList<Votante>();
+		dbDao = (BDDaoImpl) PersistenceFactory.getBDDAO();
+	}
+	
+	
+	
 	/**
-	 * Método que lee el fichero excel
-	 * @return Array de un array con los datos de los ciudadanos
+	 * Método que lee el fichero excel con los datos del censo
 	 */
-	public ArrayList<Votante> readXLSXFile(String ruta) {
+	@SuppressWarnings({ "rawtypes" })
+	@Override
+	public  void readCensus(String ruta) {
+		
 		InputStream ExcelFileToRead;
 		XSSFWorkbook wb =null;
 		try {
@@ -34,24 +49,21 @@ public class LeerFichero implements ReadCensus{
 			try {
 				wb = new XSSFWorkbook(ExcelFileToRead);
 			} catch (IOException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		
 		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			System.out.println("No se ha encontrado el fichero.");
 		}
-		XSSFWorkbook test = new XSSFWorkbook();
+	//	XSSFWorkbook test = new XSSFWorkbook(); //¿no se usa ana?
 
 		XSSFSheet sheet = wb.getSheetAt(0);
 		XSSFRow row;
 		XSSFCell cell;
 
 		Iterator rows = sheet.rowIterator();
-		ArrayList<Votante> array = new ArrayList<Votante>();
-
-		int k = 0;
+		
+	//	int k = 0; //¿no se usa ana?
 		rows.next();
 		while (rows.hasNext()) {
 			row = (XSSFRow) rows.next();
@@ -69,18 +81,42 @@ public class LeerFichero implements ReadCensus{
 				}
 
 			}
-			array.add(new Votante(String.valueOf(datos.get(0)), String.valueOf(datos.get(2)), 
-					String.valueOf(datos.get(1)),  Integer.parseInt(String.valueOf(datos.get(3)))));
+	
+			
+			votantes.add(new Votante(datos.get(0).toString(), datos.get(2).toString(), 
+					datos.get(1).toString(), (int) Double.parseDouble(datos.get(3).toString())));
+			
+			
 		}
-		return array;
 
 	}
 
-	/*public void guardarEnBD() {
-		ArrayList<ArrayList<Object>> array = new ArrayList<ArrayList<Object>>();
-		BDDaoImpl g = new BDDaoImpl();
-		for (int i = 1; i < array.size(); i++)
-			g.guardarVotanteCenso(String.valueOf(array.get(i).get(0)), String.valueOf(array.get(i).get(2)),
-					String.valueOf(array.get(i).get(1)), Integer.parseInt(String.valueOf(array.get(i).get(3))));
-	}*/
+	/**
+	 * Llama a un método del componente DBUpdate para hacer la inserción en la base de datos
+	 */
+	@Override
+	public void insert(){
+		
+		dbDao.crearConexion();
+		
+		for (Votante votante : votantes) {
+			dbDao.insert(votante);
+		}
+		
+		dbDao.cerrarConexion();
+	}
+	
+	/**
+	 * Método que devuelve una colección de votantes.
+	 * @return
+	 */
+	public  ArrayList<Votante> getVotantes(){
+		return votantes;
+	}
+
+
+
+
+	
+	
 }

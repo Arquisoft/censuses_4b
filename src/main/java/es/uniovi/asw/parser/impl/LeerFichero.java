@@ -11,8 +11,6 @@ import org.apache.poi.xssf.usermodel.XSSFCell;
 import org.apache.poi.xssf.usermodel.XSSFRow;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
-
-import es.uniovi.asw.database.impl.BDDaoImpl;
 import es.uniovi.asw.logica.Votante;
 import es.uniovi.asw.parser.ReadCensus;
 

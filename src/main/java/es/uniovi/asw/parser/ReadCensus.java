@@ -6,6 +6,6 @@ import es.uniovi.asw.logica.Votante;
 
 public interface ReadCensus {
 	
-	public ArrayList<ArrayList<Object>> readXLSXFile(String ruta);
+	public ArrayList<Votante> readXLSXFile(String ruta);
 
 }

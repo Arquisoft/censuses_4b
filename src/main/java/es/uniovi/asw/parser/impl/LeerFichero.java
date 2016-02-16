@@ -13,6 +13,7 @@ import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 import es.uniovi.asw.database.impl.BDDaoImpl;
+import es.uniovi.asw.logica.Votante;
 import es.uniovi.asw.parser.ReadCensus;
 
 /**
@@ -25,7 +26,7 @@ public class LeerFichero implements ReadCensus{
 	 * Método que lee el fichero excel
 	 * @return Array de un array con los datos de los ciudadanos
 	 */
-	public ArrayList<ArrayList<Object>> readXLSXFile(String ruta) {
+	public ArrayList<Votante> readXLSXFile(String ruta) {
 		InputStream ExcelFileToRead;
 		XSSFWorkbook wb =null;
 		try {
@@ -48,7 +49,7 @@ public class LeerFichero implements ReadCensus{
 		XSSFCell cell;
 
 		Iterator rows = sheet.rowIterator();
-		ArrayList<ArrayList<Object>> array = new ArrayList<ArrayList<Object>>();
+		ArrayList<Votante> array = new ArrayList<Votante>();
 
 		int k = 0;
 		rows.next();
@@ -68,26 +69,18 @@ public class LeerFichero implements ReadCensus{
 				}
 
 			}
-			array.add(datos);
-		}
-
-		for (int i = 1; i < array.size(); i++) {
-			for (int j = 0; j < array.get(i).size(); j++) {
-				System.out.print(array.get(i).get(j) + "\t");
-
-			}
-			System.out.println();
-
+			array.add(new Votante(String.valueOf(datos.get(0)), String.valueOf(datos.get(2)), 
+					String.valueOf(datos.get(1)),  Integer.parseInt(String.valueOf(datos.get(3)))));
 		}
 		return array;
 
 	}
 
-	public void guardarEnBD() {
+	/*public void guardarEnBD() {
 		ArrayList<ArrayList<Object>> array = new ArrayList<ArrayList<Object>>();
 		BDDaoImpl g = new BDDaoImpl();
 		for (int i = 1; i < array.size(); i++)
 			g.guardarVotanteCenso(String.valueOf(array.get(i).get(0)), String.valueOf(array.get(i).get(2)),
 					String.valueOf(array.get(i).get(1)), Integer.parseInt(String.valueOf(array.get(i).get(3))));
-	}
+	}*/
 }

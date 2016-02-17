@@ -1,12 +1,21 @@
 package es.uniovi.asw.logica;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
 /**
  * Clase Votante
  * @author Mónica
  *
  */
+@Entity
 public class Votante {
 
+	@Id
+    @GeneratedValue(strategy=GenerationType.AUTO)
+	private Long id; //identificador del votante
 	private String nombre; //Nombre y apellidos del votante
 	private String email; //Correo electrónico del votante
 	private String nif; //Número de identificación fiscal del votante

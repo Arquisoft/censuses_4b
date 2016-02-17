@@ -2,7 +2,6 @@
 
 # Package Files #
 *.jar
-*.txt
 *.war
 *.ear
 .classpath
@@ -58,3 +57,6 @@ local.properties
 
 # Code Recommenders
 .recommenders/
+
+# Cartas
+1111111A.txt

@@ -6,6 +6,8 @@ import java.io.IOException;
 
 import org.junit.Test;
 
+import com.itextpdf.text.DocumentException;
+
 import es.uniovi.asw.logica.Votante;
 import es.uniovi.asw.persistencia.*;
 
@@ -21,7 +23,7 @@ public class GeneradorCartasTest {
 	private Votante votante3 = new Votante("Ana", "ana@email.com", "33333333C", 15);
 
 	@Test
-	public void crearCartasTest() throws IOException {
+	public void crearCartasTest() throws IOException, DocumentException {
 				
 		assertEquals("Lumbreras", votante1.getNombre());
 		assertEquals("Monica", votante2.getNombre());

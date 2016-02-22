@@ -10,7 +10,7 @@ import com.itextpdf.text.FontFactory;
 import com.itextpdf.text.Paragraph;
 import com.itextpdf.text.pdf.PdfWriter;
 
-import es.uniovi.asw.logica.Votante;
+import es.uniovi.asw.logica.Voter;
 
 /**
  * Clase que genera las cartas de los votantes con su usuario y su clave
@@ -23,7 +23,7 @@ public class Generador implements GeneradorCartas {
 	private String rutaCartasPdf = "cartasPDF/";
 		
 	@Override
-	public void generador(Votante votante) throws IOException, DocumentException {
+	public void generador(Voter votante) throws IOException, DocumentException {
 
 		generarCarta(votante);
 	}	
@@ -34,12 +34,12 @@ public class Generador implements GeneradorCartas {
 	 * @throws IOException
 	 * @throws DocumentException 
 	 */
-	public Generador(Votante votante) throws IOException, DocumentException {
+	public Generador(Voter votante) throws IOException, DocumentException {
 		
 		generarCarta(votante);
 	}
 
-	private void generarCartaPdf(Votante votante, String pass) throws FileNotFoundException, DocumentException {
+	private void generarCartaPdf(Voter votante, String pass) throws FileNotFoundException, DocumentException {
 		
 		String rutaCarta = rutaCartasPdf + votante.getNif() + ".pdf";
 
@@ -64,7 +64,7 @@ public class Generador implements GeneradorCartas {
 	 * @throws IOException 
 	 * @throws DocumentException 
 	 */
-	public void generarCarta(Votante votante) throws IOException, DocumentException {
+	public void generarCarta(Voter votante) throws IOException, DocumentException {
 
 		String rutaCarta = rutaCartasTxt + votante.getNif() + ".txt";
 
@@ -92,7 +92,7 @@ public class Generador implements GeneradorCartas {
 	 * @param votante
 	 * @return pass, devuelve la clave
 	 */
-	private String generarPassword(Votante votante) {
+	private String generarPassword(Voter votante) {
 
 		int i, valor;
 		char[] codigo = new char[10];

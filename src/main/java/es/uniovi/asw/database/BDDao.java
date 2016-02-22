@@ -2,7 +2,7 @@ package es.uniovi.asw.database;
 
 import java.util.List;
 
-import es.uniovi.asw.logica.Votante;
+import es.uniovi.asw.logica.Voter;
 
 public interface BDDao {
 
@@ -17,7 +17,7 @@ public interface BDDao {
 	 * 
 	 * @param votante
 	 */
-	public void insert(Votante votante);
+	public void insert(Voter votante);
 
 	/**
 	 * Método que devuelve los datos de un votante.
@@ -26,7 +26,7 @@ public interface BDDao {
 	 *            número de identificación fiscal del votante.
 	 * @return devuelve el votante con el nif pasado por parámetro.
 	 */
-	public Votante getVoter(String nif);
+	public Voter getVoter(String nif);
 
 	/**
 	 * Método que inserta en la base de datos los datos de un votante, incluida
@@ -83,7 +83,7 @@ public interface BDDao {
 	 * 
 	 * @return devuelve una lista d votantes
 	 */
-	public List<Votante> getVotantes();
+	public List<Voter> getVotantes();
 
 	/**
 	 * Método que elimina el votante según su nif.

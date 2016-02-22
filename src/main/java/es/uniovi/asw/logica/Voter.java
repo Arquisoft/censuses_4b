@@ -11,7 +11,7 @@ import javax.persistence.Id;
  *
  */
 @Entity
-public class Votante {
+public class Voter {
 
 	@Id
     @GeneratedValue(strategy=GenerationType.AUTO)
@@ -24,7 +24,7 @@ public class Votante {
 	private String clave; //Clave del votante para acceder al sistema
 	private boolean ejercioDerechoAlVoto; //Atributo booleano que indica si el usuario ha votado o no
 	
-	
+	 protected Voter() {}
 
 	/**
 	 * Constructor con todos los parámetros de la clase Votante.
@@ -40,7 +40,7 @@ public class Votante {
 	 * @param ejercioDerechoAlVoto indica si el usuario ha votado o no	
 	 * 
 	 */
-	public Votante(String nombre, String email, String nif, int codigoColegio, String usuario,
+	public Voter(String nombre, String email, String nif, int codigoColegio, String usuario,
 			String clave, boolean ejercioDerechoAlVoto) {
 		super();
 		this.nombre = nombre;
@@ -63,7 +63,7 @@ public class Votante {
 	 * @param mesa Mesa del colegio electoral a la que tiene que acudir el votante
 	 * 
 	 */
-	public Votante(String nombre, String email, String nif, int codigoColegio) {
+	public Voter(String nombre, String email, String nif, int codigoColegio) {
 		super();
 		this.nombre = nombre;
 		this.email = email;
@@ -193,16 +193,23 @@ public class Votante {
 		this.ejercioDerechoAlVoto = ejercioDerechoAlVoto;
 	}
 
+
 	/**
 	 * Método toString que muestra la información del votante.
 	 */
 	@Override
 	public String toString() {
-		return "Votante [nombre=" + nombre + ", email=" + email + ", NIF="
-				+ nif + ", codigoColegio=" + codigoColegio 
+		return "Votante [nombre=" + nombre + ", email=" + email
+				+ ", nif=" + nif + ", codigoColegio=" + codigoColegio
 				+ ", usuario=" + usuario + ", clave=" + clave
 				+ ", ejercioDerechoAlVoto=" + ejercioDerechoAlVoto + "]";
 	}
+
+	
+
+
+	
+	
 	
 	
 	

@@ -8,7 +8,7 @@ import org.junit.Test;
 
 import com.itextpdf.text.DocumentException;
 
-import es.uniovi.asw.logica.Votante;
+import es.uniovi.asw.logica.Voter;
 import es.uniovi.asw.persistencia.*;
 
 /**
@@ -18,9 +18,9 @@ import es.uniovi.asw.persistencia.*;
  */
 public class GeneradorCartasTest {
 
-	private Votante votante1 = new Votante("Lumbreras", "lumbreras@email.com", "1111111A", 10);
-	private Votante votante2 = new Votante("Monica", "monica@email.com", "22222222B", 12);
-	private Votante votante3 = new Votante("Ana", "ana@email.com", "33333333C", 15);
+	private Voter votante1 = new Voter("Lumbreras", "lumbreras@email.com", "1111111A", 10);
+	private Voter votante2 = new Voter("Monica", "monica@email.com", "22222222B", 12);
+	private Voter votante3 = new Voter("Ana", "ana@email.com", "33333333C", 15);
 
 	@Test
 	public void crearCartasTest() throws IOException, DocumentException {

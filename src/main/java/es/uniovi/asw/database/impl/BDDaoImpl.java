@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import es.uniovi.asw.database.BDDao;
-import es.uniovi.asw.logica.Votante;
+import es.uniovi.asw.logica.Voter;
 
 /**
  * Clase que gestiona la base de datos de los censos
@@ -19,7 +19,7 @@ import es.uniovi.asw.logica.Votante;
  */
 public class BDDaoImpl implements BDDao {
 
-	private List<Votante> votantes = null; // Lista de votantes
+	private List<Voter> votantes = null; // Lista de votantes
 	static Connection con;
 	Statement st;
 	ResultSet rs;
@@ -30,7 +30,7 @@ public class BDDaoImpl implements BDDao {
 	 */
 	public BDDaoImpl() {
 		super();
-		votantes = new ArrayList<Votante>();
+		votantes = new ArrayList<Voter>();
 		crearConexion();
 		// cargarDatosVotante();
 		// cerrarConexion();
@@ -59,10 +59,10 @@ public class BDDaoImpl implements BDDao {
 	/**
 	 * Método que recibe un objeto con la información para insertar en la base
 	 * de datos.
-	 * @param Votante objeto votante con la información del mismo.
+	 * @param Voter objeto votante con la información del mismo.
 	 */
 	@Override
-	public void insert(Votante votante) {
+	public void insert(Voter votante) {
 		
 		String consulta = "insert into votante values ('" + votante.getNombre() + "','"
 				+ votante.getEmail() + "','" + votante.getNif() + "', " + votante.getCodigoColegio() + ",'" + votante.getUsuario()
@@ -89,8 +89,8 @@ public class BDDaoImpl implements BDDao {
 	 * @return devuelve el votante con el nif pasado por parámetro.
 	 */
 	@Override
-	public Votante getVoter(String nif) {
-		for (Votante votante : votantes) {
+	public Voter getVoter(String nif) {
+		for (Voter votante : votantes) {
 			if (votante.getNif().equals(nif)) {
 				return votante;
 			}
@@ -164,7 +164,7 @@ public class BDDaoImpl implements BDDao {
 	@Override
 	public void cargarDatosVotante() {
 
-		votantes = new ArrayList<Votante>();
+		votantes = new ArrayList<Voter>();
 		String consulta = "select  nombre, email, nif, cod_colegio,usuario,"
 				+ " clave, ejercio_su_derecho_al_voto  from votante";
 
@@ -182,7 +182,7 @@ public class BDDaoImpl implements BDDao {
 				boolean ejercioDerechoAlVoto = rs
 						.getBoolean("ejercio_su_derecho_al_voto");
 
-				Votante v = new Votante(nombre, email, nif, codigoColegio,
+				Voter v = new Voter(nombre, email, nif, codigoColegio,
 						usuario, clave, ejercioDerechoAlVoto);
 				votantes.add(v);
 			}
@@ -227,7 +227,7 @@ public class BDDaoImpl implements BDDao {
 	 * @return devuelve una lista d votantes
 	 */
 	@Override
-	public List<Votante> getVotantes() {
+	public List<Voter> getVotantes() {
 		return votantes;
 	}
 

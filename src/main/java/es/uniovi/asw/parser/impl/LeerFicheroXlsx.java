@@ -12,9 +12,10 @@ import org.apache.poi.xssf.usermodel.XSSFRow;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
+import es.uniovi.asw.database.VoterRepository;
 import es.uniovi.asw.database.impl.BDDaoImpl;
 import es.uniovi.asw.factoria.PersistenceFactory;
-import es.uniovi.asw.logica.Votante;
+import es.uniovi.asw.logica.Voter;
 import es.uniovi.asw.parser.Parser;
 
 /**
@@ -24,15 +25,20 @@ import es.uniovi.asw.parser.Parser;
  */
 public class LeerFicheroXlsx  implements Parser{
 	
-	 ArrayList<Votante> votantes;
-	 BDDaoImpl dbDao;
+	 ArrayList<Voter> votantes;
+	// BDDaoImpl dbDao;
+	 VoterRepository repository = null;
 	
-	
-	public LeerFicheroXlsx() {
-		votantes = new ArrayList<Votante>();
-		dbDao = (BDDaoImpl) PersistenceFactory.getBDDAO();
+
+	public LeerFicheroXlsx(VoterRepository repository) {
+		votantes = new ArrayList<Voter>();
+		this.repository = repository;
+		//dbDao = (BDDaoImpl) PersistenceFactory.getBDDAO();
 	}
 	
+	public LeerFicheroXlsx(){
+		votantes = new ArrayList<Voter>();
+	}
 	
 	
 	/**
@@ -55,7 +61,6 @@ public class LeerFicheroXlsx  implements Parser{
 		} catch (FileNotFoundException e) {
 			System.out.println("No se ha encontrado el fichero.");
 		}
-	//	XSSFWorkbook test = new XSSFWorkbook(); //¿no se usa ana?
 
 		XSSFSheet sheet = wb.getSheetAt(0);
 		XSSFRow row;
@@ -63,7 +68,6 @@ public class LeerFicheroXlsx  implements Parser{
 
 		Iterator rows = sheet.rowIterator();
 		
-	//	int k = 0; //¿no se usa ana?
 		rows.next();
 		while (rows.hasNext()) {
 			row = (XSSFRow) rows.next();
@@ -83,8 +87,10 @@ public class LeerFicheroXlsx  implements Parser{
 			}
 	
 			
-			votantes.add(new Votante(datos.get(0).toString(), datos.get(2).toString(), 
-					datos.get(1).toString(), (int) Double.parseDouble(datos.get(3).toString())));
+			votantes.add(new Voter(datos.get(0).toString(), datos.get(2).toString(),
+					datos.get(1).toString(),(int) Double.parseDouble(datos.get(3).toString()),
+					"", "", false));
+			
 			
 			
 		}
@@ -97,20 +103,23 @@ public class LeerFicheroXlsx  implements Parser{
 	@Override
 	public void insert(){
 		
-		dbDao.crearConexion();
+	//	dbDao.crearConexion();
 		
-		for (Votante votante : votantes) {
-			dbDao.insert(votante);
+		for (Voter votante : votantes) {
+			if(repository.findByNif(votante.getNif())==null){ //si el votante no está ya en la base de datos
+				repository.save(votante);
+			}
+			//dbDao.insert(votante);
 		}
 		
-		dbDao.cerrarConexion();
+	//	dbDao.cerrarConexion();
 	}
 	
 	/**
 	 * Método que devuelve una colección de votantes.
 	 * @return
 	 */
-	public  ArrayList<Votante> getVotantes(){
+	public  ArrayList<Voter> getVotantes(){
 		return votantes;
 	}
 

@@ -1,4 +1,4 @@
-package es.uniovi.asw.reportwriter.impl;
+package es.uniovi.asw.parser.impl;
 
 import java.io.*;
 
@@ -6,7 +6,7 @@ import com.itextpdf.text.*;
 import com.itextpdf.text.pdf.PdfWriter;
 
 import es.uniovi.asw.modelo.Voter;
-import es.uniovi.asw.reportwriter.GeneradorCartas;
+import es.uniovi.asw.parser.GeneradorCartas;
 
 public class CartasPDF implements GeneradorCartas {
 	

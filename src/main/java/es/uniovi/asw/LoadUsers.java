@@ -8,8 +8,6 @@ import org.apache.commons.cli.BasicParser;
 import org.apache.commons.cli.CommandLine;
 import org.apache.commons.cli.CommandLineParser;
 import org.apache.commons.cli.Options;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -18,10 +16,9 @@ import org.springframework.context.annotation.Bean;
 import es.uniovi.asw.dbupdate.VoterRepository;
 import es.uniovi.asw.factoria.ParserFactory;
 import es.uniovi.asw.modelo.Voter;
+import es.uniovi.asw.parser.impl.CartasPDF;
+import es.uniovi.asw.parser.impl.CartasTXT;
 import es.uniovi.asw.parser.impl.LeerFicheroXlsx;
-import es.uniovi.asw.reportwriter.GeneradorCartas;
-import es.uniovi.asw.reportwriter.impl.CartasPDF;
-import es.uniovi.asw.reportwriter.impl.CartasTXT;
 
 /**
  * Main application
@@ -30,6 +27,7 @@ import es.uniovi.asw.reportwriter.impl.CartasTXT;
  *
  */
 
+@SuppressWarnings("deprecation")
 @SpringBootApplication
 public class LoadUsers {
 	
@@ -38,14 +36,14 @@ public class LoadUsers {
 		LoadUsers runner = new LoadUsers();
 		runner.run(args);
 	}*/
-	private static final Logger log = LoggerFactory.getLogger(LoadUsers.class);
+	//private static final Logger log = LoggerFactory.getLogger(LoadUsers.class);
 
 	public static void main(String[] args) {
 		SpringApplication.run(LoadUsers.class);
 	}
 
 	
-	@SuppressWarnings("deprecation")
+
 	@Bean
 	public CommandLineRunner demo(final VoterRepository repository) {
 		return new CommandLineRunner() {

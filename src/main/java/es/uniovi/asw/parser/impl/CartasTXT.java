@@ -1,11 +1,11 @@
-package es.uniovi.asw.reportwriter.impl;
+package es.uniovi.asw.parser.impl;
 
 import java.io.*;
 
 import com.itextpdf.text.*;
 
 import es.uniovi.asw.modelo.Voter;
-import es.uniovi.asw.reportwriter.GeneradorCartas;
+import es.uniovi.asw.parser.GeneradorCartas;
 
 /**
  * Clase que genera las cartas de los votantes con su usuario y su clave

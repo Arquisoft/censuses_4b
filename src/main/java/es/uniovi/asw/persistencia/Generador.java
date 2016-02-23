@@ -39,7 +39,7 @@ public class Generador implements GeneradorCartas {
 		generarCarta(votante);
 	}
 
-	private void generarCartaPdf(Voter votante, String pass) throws FileNotFoundException, DocumentException {
+	public void generarCartaPdf(Voter votante, String pass) throws FileNotFoundException, DocumentException {
 		
 		String rutaCarta = rutaCartasPdf + votante.getNif() + ".pdf";
 

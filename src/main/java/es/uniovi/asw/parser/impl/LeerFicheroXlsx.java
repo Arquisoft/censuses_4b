@@ -6,6 +6,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.List;
 
 import org.apache.poi.xssf.usermodel.XSSFCell;
 import org.apache.poi.xssf.usermodel.XSSFRow;
@@ -25,7 +26,7 @@ import es.uniovi.asw.parser.Parser;
  */
 public class LeerFicheroXlsx  implements Parser{
 	
-	 ArrayList<Voter> votantes;
+	 List<Voter> votantes;
 	// BDDaoImpl dbDao;
 	 VoterRepository repository = null;
 	
@@ -119,7 +120,7 @@ public class LeerFicheroXlsx  implements Parser{
 	 * Método que devuelve una colección de votantes.
 	 * @return
 	 */
-	public  ArrayList<Voter> getVotantes(){
+	public  List<Voter> getVotantes(){
 		return votantes;
 	}
 

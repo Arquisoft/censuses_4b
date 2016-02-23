@@ -19,8 +19,8 @@ import es.uniovi.asw.database.VoterRepository;
 import es.uniovi.asw.factoria.ParserFactory;
 import es.uniovi.asw.logica.Voter;
 import es.uniovi.asw.parser.impl.LeerFicheroXlsx;
-import es.uniovi.asw.persistencia.Generador;
 import es.uniovi.asw.persistencia.GeneradorCartas;
+import es.uniovi.asw.persistencia.impl.CartasTXT;
 
 /**
  * Main application
@@ -77,7 +77,7 @@ public class LoadUsers {
 				}else if(cmd.hasOption("t")){
 					
 					for (Voter voter : votantes) {
-						Generador g = new Generador(voter);
+						CartasTXT g = new CartasTXT(voter);
 						//g.generarCarta(voter);
 					}
 					
@@ -85,7 +85,7 @@ public class LoadUsers {
 				}else if(cmd.hasOption("p")){
 					
 					for (Voter voter : votantes) {
-						Generador g = new Generador(voter);
+						CartasTXT g = new CartasTXT(voter);
 						
 					}
 				}

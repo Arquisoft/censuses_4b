@@ -66,7 +66,18 @@ public class LeerFicheroTest {
 		lf.readCensus("test.xlsx");
 		lf.insert();
 	
-		assertEquals(votantes.toString(), vr.findAll().toString());
+		assertEquals(v1.getNombre(), vr.findByNif("90500084Y").getNombre());
+		assertEquals(v1.getEmail(), vr.findByNif("90500084Y").getEmail());
+		assertEquals(v1.getCodigoColegio(), vr.findByNif("90500084Y").getCodigoColegio());
+		
+		assertEquals(v2.getNombre(), vr.findByNif("19160962F").getNombre());
+		assertEquals(v2.getEmail(), vr.findByNif("19160962F").getEmail());
+		assertEquals(v2.getCodigoColegio(), vr.findByNif("19160962F").getCodigoColegio());
+		
+		assertEquals(v3.getNombre(), vr.findByNif("09940449X").getNombre());
+		assertEquals(v3.getEmail(), vr.findByNif("09940449X").getEmail());
+		assertEquals(v3.getCodigoColegio(), vr.findByNif("09940449X").getCodigoColegio());
+		
 		
 
 	}
@@ -88,9 +99,5 @@ public class LeerFicheroTest {
 		
 		assertEquals(votantes.toString(), vr.findAll().toString());
 		
-		/*assertEquals("Monica Cueva", vr.findByNif("12151651s").getNombre());
-		assertEquals("monicac@gmail.com", vr.findByNif("12151651s").getEmail());
-		assertFalse(vr.findByNif("12151651s").isEjercioDerechoAlVoto());
-		assertEquals(1, vr.count());*/
 	}
 }

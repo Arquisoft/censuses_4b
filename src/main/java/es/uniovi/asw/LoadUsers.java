@@ -16,6 +16,7 @@ import org.springframework.context.annotation.Bean;
 import es.uniovi.asw.dbupdate.VoterRepository;
 import es.uniovi.asw.factoria.ParserFactory;
 import es.uniovi.asw.modelo.Voter;
+import es.uniovi.asw.parser.GeneradorCartas;
 import es.uniovi.asw.parser.impl.CartasPDF;
 import es.uniovi.asw.parser.impl.CartasTXT;
 import es.uniovi.asw.parser.impl.LeerFicheroXlsx;
@@ -78,14 +79,15 @@ public class LoadUsers {
 					}else if(cmd.hasOption("t")){
 						
 						for (Voter voter : votantes) {
-							new CartasTXT(voter);
+							
+							ParserFactory.getGeneradorTxt(voter); 
 						}
 						System.out.println("Se han generado las cartas en formato .txt correctamente.");
 						
 					}else if(cmd.hasOption("p")){
 						
 						for (Voter voter : votantes) {
-							new CartasPDF(voter);
+							ParserFactory.getGeneradorPdf(voter); 
 						}
 						System.out.println("Se han generado las cartas en formato .pdf correctamente.");
 					}

@@ -14,9 +14,11 @@ import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 import es.uniovi.asw.dbupdate.VoterRepository;
+import es.uniovi.asw.factoria.WriterFactory;
 import es.uniovi.asw.modelo.Voter;
 import es.uniovi.asw.parser.Insert;
 import es.uniovi.asw.parser.ReadCensus;
+import es.uniovi.asw.reportwriter.impl.WriterReportImpl;
 
 /**
  * 
@@ -140,7 +142,9 @@ public class LeerFicheroXlsx  implements ReadCensus, Insert{
 		for (Voter votante : votantes) {
 			updateUsuarioYClave(votante);
 			if(repository.findByNif(votante.getNif())==null){ //si el votante no está ya en la base de datos
-				repository.save(votante);
+				if(!comprobar(votante)){
+					repository.save(votante);
+				}
 			}
 		}
 	}
@@ -153,6 +157,21 @@ public class LeerFicheroXlsx  implements ReadCensus, Insert{
 		return votantes;
 	}
 
+	/**
+	 * Método que comprueba si hay varios usuarios con el mismo email.
+	 * @param voter
+	 */
+	public boolean comprobar(Voter voter){
+		
+		for (Voter votante : repository.findAll()) {
+			if(voter.getEmail().equals(votante.getEmail())){ //si encuentra a otro votante con el mismo email
+				WriterReportImpl w = (WriterReportImpl)WriterFactory.getWriterReportImpl();
+				w.errorMismoEmail(voter.getEmail());
+				return true;
+			}
+		}
+		return false;
+	}
 
 
 

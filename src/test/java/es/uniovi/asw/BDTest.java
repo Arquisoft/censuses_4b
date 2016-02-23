@@ -152,10 +152,6 @@ public class BDTest {
 		
 		assertEquals(votantes.toString(), vr.findAll().toString());
 		
-	/*	assertEquals("Monica Cueva", vr.findByNif("12151651s").getNombre());
-		assertEquals("monicac@gmail.com", vr.findByNif("12151651s").getEmail());
-		assertFalse(vr.findByNif("12151651s").isEjercioDerechoAlVoto());
-		assertEquals(1, vr.count());*/
 	}
 	
 

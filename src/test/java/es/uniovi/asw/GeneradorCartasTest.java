@@ -9,9 +9,6 @@ import org.junit.Test;
 import com.itextpdf.text.DocumentException;
 
 import es.uniovi.asw.modelo.Voter;
-import es.uniovi.asw.reportwriter.*;
-import es.uniovi.asw.reportwriter.impl.CartasPDF;
-import es.uniovi.asw.reportwriter.impl.CartasTXT;
 
 /**
  * Clase para comprobar el funcionamiento del generador de cartas
@@ -39,13 +36,6 @@ public class GeneradorCartasTest {
 		assertEquals("22222222B", votante2.getNif());
 		assertEquals("33333333C", votante3.getNif());
 		
-		CartasTXT Lum = new CartasTXT(votante1);
-		CartasTXT Monica = new CartasTXT(votante2);
-		CartasTXT Ana = new CartasTXT(votante3);
-		
-		CartasPDF Lums = new CartasPDF(votante1);
-		CartasPDF Monicas = new CartasPDF(votante2);
-		CartasPDF Anas = new CartasPDF(votante3);
 		
 	}
 	

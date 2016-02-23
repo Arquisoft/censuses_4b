@@ -13,8 +13,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.SpringApplicationConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-import es.uniovi.asw.database.VoterRepository;
-import es.uniovi.asw.logica.Voter;
+import es.uniovi.asw.dbupdate.VoterRepository;
+import es.uniovi.asw.modelo.Voter;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringApplicationConfiguration(classes = LoadUsers.class)

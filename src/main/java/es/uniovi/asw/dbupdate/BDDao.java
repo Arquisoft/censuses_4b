@@ -1,8 +1,8 @@
-package es.uniovi.asw.database;
+package es.uniovi.asw.dbupdate;
 
 import java.util.List;
 
-import es.uniovi.asw.logica.Voter;
+import es.uniovi.asw.modelo.Voter;
 
 public interface BDDao {
 

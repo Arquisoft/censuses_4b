@@ -15,12 +15,13 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
-import es.uniovi.asw.database.VoterRepository;
+import es.uniovi.asw.dbupdate.VoterRepository;
 import es.uniovi.asw.factoria.ParserFactory;
-import es.uniovi.asw.logica.Voter;
+import es.uniovi.asw.modelo.Voter;
 import es.uniovi.asw.parser.impl.LeerFicheroXlsx;
-import es.uniovi.asw.persistencia.GeneradorCartas;
-import es.uniovi.asw.persistencia.impl.CartasTXT;
+import es.uniovi.asw.reportwriter.GeneradorCartas;
+import es.uniovi.asw.reportwriter.impl.CartasPDF;
+import es.uniovi.asw.reportwriter.impl.CartasTXT;
 
 /**
  * Main application
@@ -48,11 +49,11 @@ public class LoadUsers {
 	@Bean
 	public CommandLineRunner demo(final VoterRepository repository) {
 		return (args) -> {
-			
+		
 			CommandLineParser cmdlParser = null;
 			CommandLine cmd = null;
 			String ruta ="";
-			LeerFicheroXlsx leerxlsx = (LeerFicheroXlsx)ParserFactory.getParserXlsx(repository);
+			LeerFicheroXlsx leerxlsx = (LeerFicheroXlsx)ParserFactory.getReadCensusXlsx(repository);
 			List<Voter> votantes = new ArrayList<Voter>();
 					
 			Options opciones = new Options();
@@ -77,22 +78,26 @@ public class LoadUsers {
 				}else if(cmd.hasOption("t")){
 					
 					for (Voter voter : votantes) {
-						CartasTXT g = new CartasTXT(voter);
-						//g.generarCarta(voter);
+						new CartasTXT(voter);
 					}
-					
+					System.out.println("Se han generado las cartas en formato .txt correctamente.");
 					
 				}else if(cmd.hasOption("p")){
 					
 					for (Voter voter : votantes) {
-						CartasTXT g = new CartasTXT(voter);
-						
+						new CartasPDF(voter);
 					}
+					System.out.println("Se han generado las cartas en formato .pdf correctamente.");
 				}
 				
-				/*LeerFicheroXlsx leerxlsx = (LeerFicheroXlsx)ParserFactory.getParserXlsx(repository);
+			/*	LeerFicheroXlsx leerxlsx = (LeerFicheroXlsx)ParserFactory.getReadCensusXlsx(repository);
 				leerxlsx.readCensus("test.xlsx"); //lee el fichero en formato .xlsx
-				leerxlsx.insert();			
+				leerxlsx.insert();	
+				ArrayList<Voter> votantes = (ArrayList<Voter>) leerxlsx.getVotantes();
+				for (Voter voter : votantes) {
+					new CartasPDF(voter);
+				}
+				
 				
 				log.info("--------------------------------------------");
 				log.info("Información de los votantes: ");

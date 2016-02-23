@@ -1,4 +1,4 @@
-package es.uniovi.asw.logica;
+package es.uniovi.asw.modelo;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;

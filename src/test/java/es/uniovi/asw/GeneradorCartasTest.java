@@ -8,10 +8,10 @@ import org.junit.Test;
 
 import com.itextpdf.text.DocumentException;
 
-import es.uniovi.asw.logica.Voter;
-import es.uniovi.asw.persistencia.*;
-import es.uniovi.asw.persistencia.impl.CartasPDF;
-import es.uniovi.asw.persistencia.impl.CartasTXT;
+import es.uniovi.asw.modelo.Voter;
+import es.uniovi.asw.reportwriter.*;
+import es.uniovi.asw.reportwriter.impl.CartasPDF;
+import es.uniovi.asw.reportwriter.impl.CartasTXT;
 
 /**
  * Clase para comprobar el funcionamiento del generador de cartas

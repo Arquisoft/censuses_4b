@@ -1,7 +1,7 @@
 package es.uniovi.asw.factoria;
 
-import es.uniovi.asw.database.BDDao;
-import es.uniovi.asw.database.impl.BDDaoImpl;
+import es.uniovi.asw.dbupdate.BDDao;
+import es.uniovi.asw.dbupdate.impl.BDDaoImpl;
 
 
 public class PersistenceFactory {

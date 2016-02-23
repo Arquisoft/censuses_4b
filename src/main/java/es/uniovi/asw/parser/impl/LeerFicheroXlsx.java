@@ -13,28 +13,25 @@ import org.apache.poi.xssf.usermodel.XSSFRow;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
-import es.uniovi.asw.database.VoterRepository;
-import es.uniovi.asw.database.impl.BDDaoImpl;
-import es.uniovi.asw.factoria.PersistenceFactory;
-import es.uniovi.asw.logica.Voter;
-import es.uniovi.asw.parser.Parser;
+import es.uniovi.asw.dbupdate.VoterRepository;
+import es.uniovi.asw.modelo.Voter;
+import es.uniovi.asw.parser.Insert;
+import es.uniovi.asw.parser.ReadCensus;
 
 /**
  * 
  * @author Ana
  *Clase que lee el fichero excel con los datos de los ciudadanos
  */
-public class LeerFicheroXlsx  implements Parser{
+public class LeerFicheroXlsx  implements ReadCensus, Insert{
 	
 	 List<Voter> votantes;
-	// BDDaoImpl dbDao;
 	 VoterRepository repository = null;
 	
 
 	public LeerFicheroXlsx(VoterRepository repository) {
 		votantes = new ArrayList<Voter>();
 		this.repository = repository;
-		//dbDao = (BDDaoImpl) PersistenceFactory.getBDDAO();
 	}
 	
 	public LeerFicheroXlsx(){
@@ -97,6 +94,42 @@ public class LeerFicheroXlsx  implements Parser{
 		}
 
 	}
+	
+	/**
+	 * Método que genera el nombre de usuario y la contraseña
+	 * @param Voter
+	 */
+	public void updateUsuarioYClave(Voter voter){
+		
+		voter.setUsuario(voter.getEmail());
+		voter.setClave(generarPass(voter));
+
+	}
+	
+	/**
+	 * Método que genera una contraseña aleatoria.
+	 * @param votante
+	 * @return
+	 */
+	private String generarPass(Voter votante) {
+		
+		int i, valor;
+		char[] codigo = new char[10];
+		char[] elementos = {'0','1','2','3','4','5','6','7','8','9',
+						'a','b','c','d','e','f','g','h','i','j','k','l','m','n',
+						'o','p','q','r','s','t','u','v','w','x','y','z',
+						'A','B','C','D','E','F','G','H','I','J','K','L','M','N',
+						'O','P','Q','R','S','T','U','V','W','X','Y','Z',
+						'*','+','.',','};
+		
+		for(i = 0; i < codigo.length; i++){
+			valor = (int)(Math.random() * elementos.length);
+			codigo[i] = (char)elementos[valor];
+		}
+		
+		return new String(codigo);
+	}
+
 
 	/**
 	 * Llama a un método del componente DBUpdate para hacer la inserción en la base de datos
@@ -104,16 +137,12 @@ public class LeerFicheroXlsx  implements Parser{
 	@Override
 	public void insert(){
 		
-	//	dbDao.crearConexion();
-		
 		for (Voter votante : votantes) {
+			updateUsuarioYClave(votante);
 			if(repository.findByNif(votante.getNif())==null){ //si el votante no está ya en la base de datos
 				repository.save(votante);
 			}
-			//dbDao.insert(votante);
 		}
-		
-	//	dbDao.cerrarConexion();
 	}
 	
 	/**

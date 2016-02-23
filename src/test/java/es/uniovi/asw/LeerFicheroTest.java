@@ -14,9 +14,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.SpringApplicationConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-import es.uniovi.asw.database.VoterRepository;
+import es.uniovi.asw.dbupdate.VoterRepository;
 import es.uniovi.asw.factoria.ParserFactory;
-import es.uniovi.asw.logica.Voter;
+import es.uniovi.asw.modelo.Voter;
 import es.uniovi.asw.parser.impl.LeerFicheroXlsx;
 
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -52,7 +52,7 @@ public class LeerFicheroTest {
 	@Test
 	public void testGuardarDatosBDD() {
 		
-		LeerFicheroXlsx lf = (LeerFicheroXlsx)ParserFactory.getParserXlsx(vr);
+		LeerFicheroXlsx lf = (LeerFicheroXlsx)ParserFactory.getReadCensusXlsx(vr);
 		
 		List<Voter> votantes = new ArrayList<Voter>();
 		Voter v1 = new Voter("Juan Torres Pardo", "juan@correo.es", "90500084Y", 234, "", "", false);

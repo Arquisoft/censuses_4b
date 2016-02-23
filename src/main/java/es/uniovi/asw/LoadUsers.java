@@ -48,66 +48,69 @@ public class LoadUsers {
 	@SuppressWarnings("deprecation")
 	@Bean
 	public CommandLineRunner demo(final VoterRepository repository) {
-		return (args) -> {
-		
-			CommandLineParser cmdlParser = null;
-			CommandLine cmd = null;
-			String ruta ="";
-			LeerFicheroXlsx leerxlsx = (LeerFicheroXlsx)ParserFactory.getReadCensusXlsx(repository);
-			List<Voter> votantes = new ArrayList<Voter>();
-					
-			Options opciones = new Options();
-			opciones.addOption("l", true, "Para leer el fichero xlsx, introduzca su ruta");
-			opciones.addOption("t", "Generar carta en formato .txt");
-			opciones.addOption("p", "Generar carta en formato.pdf");
+		return new CommandLineRunner() {
+			@Override
+			public void run(String... args) throws Exception {
 			
-			try {
+				CommandLineParser cmdlParser = null;
+				CommandLine cmd = null;
+				String ruta ="";
+				LeerFicheroXlsx leerxlsx = (LeerFicheroXlsx)ParserFactory.getReadCensusXlsx(repository);
+				List<Voter> votantes = new ArrayList<Voter>();
+						
+				Options opciones = new Options();
+				opciones.addOption("l", true, "Para leer el fichero xlsx, introduzca su ruta");
+				opciones.addOption("t", "Generar carta en formato .txt");
+				opciones.addOption("p", "Generar carta en formato.pdf");
 				
-				cmdlParser = new BasicParser();
-				cmd = cmdlParser.parse(opciones, args);
-				
-				if(cmd.hasOption("l")){
+				try {
 					
-					ruta = cmd.getOptionValue("l");
-	
-					leerxlsx.readCensus(ruta); //lee el fichero en formato .xlsx
-					leerxlsx.insert();	//inserto los datos del fichero en la base de datos.	
-					votantes = leerxlsx.getVotantes();
-					System.out.println("Se ha leído el fichero excel correctamente.");
+					cmdlParser = new BasicParser();
+					cmd = cmdlParser.parse(opciones, args);
 					
-				}else if(cmd.hasOption("t")){
-					
-					for (Voter voter : votantes) {
-						new CartasTXT(voter);
+					if(cmd.hasOption("l")){
+						
+						ruta = cmd.getOptionValue("l");
+
+						leerxlsx.readCensus(ruta); //lee el fichero en formato .xlsx
+						leerxlsx.insert();	//inserto los datos del fichero en la base de datos.	
+						votantes = leerxlsx.getVotantes();
+						System.out.println("Se ha leído el fichero excel correctamente.");
+						
+					}else if(cmd.hasOption("t")){
+						
+						for (Voter voter : votantes) {
+							new CartasTXT(voter);
+						}
+						System.out.println("Se han generado las cartas en formato .txt correctamente.");
+						
+					}else if(cmd.hasOption("p")){
+						
+						for (Voter voter : votantes) {
+							new CartasPDF(voter);
+						}
+						System.out.println("Se han generado las cartas en formato .pdf correctamente.");
 					}
-					System.out.println("Se han generado las cartas en formato .txt correctamente.");
 					
-				}else if(cmd.hasOption("p")){
-					
+				/*	LeerFicheroXlsx leerxlsx = (LeerFicheroXlsx)ParserFactory.getReadCensusXlsx(repository);
+					leerxlsx.readCensus("test.xlsx"); //lee el fichero en formato .xlsx
+					leerxlsx.insert();	
+					ArrayList<Voter> votantes = (ArrayList<Voter>) leerxlsx.getVotantes();
 					for (Voter voter : votantes) {
 						new CartasPDF(voter);
 					}
-					System.out.println("Se han generado las cartas en formato .pdf correctamente.");
+					
+					
+					log.info("--------------------------------------------");
+					log.info("Información de los votantes: ");
+					for (Voter voter : repository.findAll()) {
+						log.info(voter.toString());
+					}
+					log.info("--------------------------------------------");*/
+					
+				} catch (Exception e) {
+					System.out.println("Excepcion..." + e);
 				}
-				
-			/*	LeerFicheroXlsx leerxlsx = (LeerFicheroXlsx)ParserFactory.getReadCensusXlsx(repository);
-				leerxlsx.readCensus("test.xlsx"); //lee el fichero en formato .xlsx
-				leerxlsx.insert();	
-				ArrayList<Voter> votantes = (ArrayList<Voter>) leerxlsx.getVotantes();
-				for (Voter voter : votantes) {
-					new CartasPDF(voter);
-				}
-				
-				
-				log.info("--------------------------------------------");
-				log.info("Información de los votantes: ");
-				for (Voter voter : repository.findAll()) {
-					log.info(voter.toString());
-				}
-				log.info("--------------------------------------------");*/
-				
-			} catch (Exception e) {
-				System.out.println("Excepcion..." + e);
 			}
 		};
 		

@@ -20,6 +20,8 @@ import es.uniovi.asw.parser.GeneradorCartas;
 import es.uniovi.asw.parser.impl.CartasPDF;
 import es.uniovi.asw.parser.impl.CartasTXT;
 import es.uniovi.asw.parser.impl.LeerFicheroXlsx;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * Main application
@@ -37,7 +39,8 @@ public class LoadUsers {
 		LoadUsers runner = new LoadUsers();
 		runner.run(args);
 	}*/
-	//private static final Logger log = LoggerFactory.getLogger(LoadUsers.class);
+	
+	private static final Logger log = LoggerFactory.getLogger(LoadUsers.class);
 
 	public static void main(String[] args) {
 		SpringApplication.run(LoadUsers.class);
@@ -50,8 +53,11 @@ public class LoadUsers {
 		return new CommandLineRunner() {
 			@Override
 			public void run(String... args) throws Exception {
-			try{/*
-				CommandLineParser cmdlParser = null;
+
+			try{
+			
+/*				CommandLineParser cmdlParser = null;
+
 				CommandLine cmd = null;
 				String ruta ="";
 				LeerFicheroXlsx leerxlsx = (LeerFicheroXlsx)ParserFactory.getReadCensusXlsx(repository);
@@ -91,8 +97,8 @@ public class LoadUsers {
 						}
 						System.out.println("Se han generado las cartas en formato .pdf correctamente.");
 					}
-					
-				/*	LeerFicheroXlsx leerxlsx = (LeerFicheroXlsx)ParserFactory.getReadCensusXlsx(repository);
+					*/
+					LeerFicheroXlsx leerxlsx = (LeerFicheroXlsx)ParserFactory.getReadCensusXlsx(repository);
 					leerxlsx.readCensus("test.xlsx"); //lee el fichero en formato .xlsx
 					leerxlsx.insert();	
 					ArrayList<Voter> votantes = (ArrayList<Voter>) leerxlsx.getVotantes();
@@ -106,7 +112,7 @@ public class LoadUsers {
 					for (Voter voter : repository.findAll()) {
 						log.info(voter.toString());
 					}
-					log.info("--------------------------------------------");*/
+					log.info("--------------------------------------------");
 					
 				} catch (Exception e) {
 					System.out.println("Excepcion..." + e);

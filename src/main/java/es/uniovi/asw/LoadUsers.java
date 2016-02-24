@@ -50,7 +50,7 @@ public class LoadUsers {
 		return new CommandLineRunner() {
 			@Override
 			public void run(String... args) throws Exception {
-			
+			try{/*
 				CommandLineParser cmdlParser = null;
 				CommandLine cmd = null;
 				String ruta ="";

@@ -68,8 +68,7 @@ input,button {
 	height: 100%;
 	background: -webkit-linear-gradient(top, rgba(146, 135, 187, 0.8) 0%,
 		rgba(0, 0, 0, 0.6) 100%);
-	background: linear-gradient(to bottom, rgba(146, 135, 187, 0.8) 0%,
-		rgba(0, 0, 0, 0.6) 100%);
+	background: linear-gradient(to bottom, rgba(135, 186, 187, 0.8) 0%, rgba(0, 0, 0, 0.77) 100%);
 	-webkit-transition: opacity 0.1s, -webkit-transform 0.3s
 		cubic-bezier(0.17, -0.65, 0.665, 1.25);
 	transition: opacity 0.1s, -webkit-transform 0.3s
@@ -210,19 +209,38 @@ input[name=passwd2] {
 	color: #FDFCFD;
 }
 
-td input[type=text] {
-	margin-top: 5rem;
-	border: 1px solid #F1F5F4;
-	height: 25px;
-	border-radius: 30px;
-	width: 200px;
-	margin-left: 12rem;
-	text-align: center;
+
+
+td input[type=text] , td input[type=password]   {
+     margin-left: 7rem;
+    border: none;
+    width: 60%;
+    padding: 10px 20px;
+    display: block;
+    height: 15px;
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.28);
+    border: 2px solid rgba(255, 255, 255, 0);
+    overflow: hidden;
+    margin-top: 15px;
+    transition: all 0.5s ease-in-out;
+    margin-top: 5rem;
 }
+
+td input[type=text]:focus, td input[type=password]:focus {
+  outline: 0;
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  border-radius: 20px;
+  background: rgba(0, 0, 0, 0);
+}
+
+td input[type=text] :focus + span, , td input[type=password]:focus +span {
+  opacity: 0.6;
+}
+
 
 td input[name=nombre] {
 	margin-top: 2rem;
-	border: 1px solid #F1F5F4;
 	height: 25px;
 	border-radius: 30px;
 	width: 200px;
@@ -232,7 +250,6 @@ td input[name=nombre] {
 
 td input[name=apellidos] {
 	margin-top: 7rem;
-	border: 1px solid #F1F5F4;
 	height: 25px;
 	border-radius: 30px;
 	width: 200px;
@@ -242,7 +259,6 @@ td input[name=apellidos] {
 
 td input[name=emailUsuario] {
 	margin-top: 12rem;
-	border: 1px solid #F1F5F4;
 	height: 25px;
 	border-radius: 30px;
 	width: 200px;
@@ -252,7 +268,6 @@ td input[name=emailUsuario] {
 
 td input[name=idUsuario] {
 	margin-top: 17.5rem;
-	border: 1px solid #F1F5F4;
 	height: 25px;
 	border-radius: 30px;
 	width: 200px;
@@ -262,7 +277,6 @@ td input[name=idUsuario] {
 
 td input[name=passwd] {
 	margin-top: 22.2rem;
-	border: 1px solid #F1F5F4;
 	height: 25px;
 	border-radius: 30px;
 	width: 200px;
@@ -272,7 +286,6 @@ td input[name=passwd] {
 
 td input[name=passwd2] {
 	margin-top: 27.5rem;
-	border: 1px solid #F1F5F4;
 	height: 25px;
 	border-radius: 30px;
 	width: 200px;
@@ -292,7 +305,7 @@ td input[name=passwd2] {
 .reg_psswd {
 	margin-top: 20.5rem;
 	margin-left: 12.5rem;
-	font-size: 15.5px;
+	font-size: 17px;
 	font-weight: 300;
 	color: #eee;
 	position: absolute;
@@ -300,8 +313,8 @@ td input[name=passwd2] {
 
 .reg_psswd2 {
 	margin-top: 25.5rem;
-	margin-left: 12.5rem;
-	font-size: 15.5px;
+	margin-left: 14rem;
+	font-size: 17px;
 	font-weight: 300;
 	color: #eee;
 	position: absolute;
@@ -309,8 +322,8 @@ td input[name=passwd2] {
 
 .reg_nombre {
 	margin-top: 0.3rem;
-	margin-left: 12.5rem;
-	font-size: 15.5px;
+	margin-left: 14rem;
+	font-size: 17px;
 	font-weight: 300;
 	color: #eee;
 	position: absolute;
@@ -318,8 +331,8 @@ td input[name=passwd2] {
 
 .reg_email {
 	margin-top: 10.3rem;
-	margin-left: 12.5rem;
-	font-size: 15.5px;
+	margin-left: 14.5rem;
+	font-size: 17px;
 	font-weight: 300;
 	color: #eee;
 	position: absolute;
@@ -327,8 +340,8 @@ td input[name=passwd2] {
 
 .reg_apellido {
 	margin-top: 5.3rem;
-	margin-left: 12.5rem;
-	font-size: 15.5px;
+	margin-left: 13rem;
+	font-size: 17px;
 	font-weight: 300;
 	color: #eee;
 	position: absolute;
@@ -336,8 +349,8 @@ td input[name=passwd2] {
 
 .reg_id {
 	margin-top: 15.7rem;
-	margin-left: 12.5rem;
-	font-size: 15.5px;
+	margin-left: 12.2rem;
+	font-size: 17px;
 	font-weight: 300;
 	color: #eee;
 	position: absolute;

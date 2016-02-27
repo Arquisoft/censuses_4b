@@ -1,0 +1,55 @@
+@CHARSET "ISO-8859-1";
+
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:600,400);
+
+html {
+	font-family: 'Open Sans', sans-serif;
+}
+
+ul {
+	width: 10000px;
+	background: hsla(186, 1%, 2%, 0);
+	font-weight: 00;
+	font-size: 13px;
+	margin-left: -1rem;
+	margin-top: -0.5rem;
+}
+
+ul {
+	margin: 0;
+	padding: 0;
+}
+
+ul li a,label[for=toggle] {
+	display: inline-block;
+	cursor: pointer;
+	color: hsl(0, 0%, 75%);
+	padding: 13px 10px 13px 25px;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	margin-left: 25rem;
+}
+
+ul li a:last-child {
+	padding: 13px 25px 13px 25px;
+}
+
+ul li a:hover,label[for=toggle]:hover {
+	color: hsl(0, 0%, 90%);
+	text-shadow: 0 0 1px #fff;
+}
+
+ul {
+	float: left;
+	list-style-type: none;
+	padding: 0;
+}
+
+li {
+	float: left; 
+}
+
+li a {
+	padding: 10px;
+	text-decoration: none;
+}

@@ -63,7 +63,7 @@ INSERT INTO TTRIPS VALUES(29,'2016-02-19 08:20:10.000000',4,'2016-02-18 08:20:10
 INSERT INTO TTRIPS VALUES(30,'2016-02-19 08:20:10.000000',4,'2016-02-18 08:20:10.000000','Buen rollo5','address12','Barcelona','country12','state12',43.34343E0,-6.53434E0,'zipcode12','2016-02-19 08:20:10.000000','address13','Valencia','country13','state13',43.34343E0,-6.53434E0,'zipcode13',50.0E0,5,0,307)
 INSERT INTO TUSERS VALUES(306,'user11@mail.com','user1','Fernando','user1',0,'Alvarez')
 INSERT INTO TUSERS VALUES(307,'user2@mail.com','user2','Luisa','user2',0,'Perez')
-INSERT INTO TUSERS VALUES(308,'monicacg@gmail.com','monicaprueba','monica','monicaprueba',0,'cg')
+INSERT INTO TUSERS VALUES(308,'monicaprueba@gamil.com','monicaprueba','monica','prueba',0,'cueva')
 INSERT INTO TUSERS VALUES(309,'adriangl@gmail.com','adrianprueba','adrian','adrianprueba',0,'gl')
 INSERT INTO TUSERS VALUES(310,'marias@gmail.com','user3','maria','maria',0,'suarez')
 INSERT INTO TUSERS VALUES(326,'garcia@gmail.com','mariamaria','maria','mar',0,'garcia')

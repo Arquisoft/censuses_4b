@@ -5,6 +5,7 @@ import uo.sdi.persistence.util.GenericDao;
 
 public interface UserDao extends GenericDao<User, Long>{
 
+	User findByLoginPass(String login, String passwd);
 	User findByLogin(String login);
 	
 

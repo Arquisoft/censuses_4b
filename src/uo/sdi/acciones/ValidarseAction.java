@@ -17,17 +17,27 @@ public class ValidarseAction implements Accion {
 		
 		String resultado="EXITO";
 		String nombreUsuario=request.getParameter("nombreUsuario");
+		String contraseña = request.getParameter("passwdUsuario");
 		HttpSession session=request.getSession();
 		if (session.getAttribute("user")==null) {
 			UserDao dao = PersistenceFactory.newUserDao();
 			User userByLogin = dao.findByLogin(nombreUsuario);
-			if (userByLogin!=null) {
+			if (userByLogin!=null){
+			    if(userByLogin.getPassword().equals(contraseña)) {
 				session.setAttribute("user", userByLogin);
 				int contador=Integer.parseInt((String)request.getServletContext().getAttribute("contador"));
 				request.getServletContext().setAttribute("contador", String.valueOf(contador+1));
 				Log.info("El usuario [%s] ha iniciado sesión",nombreUsuario);
+			    }else{
+				
+				request.setAttribute("mensaje", "La contraseña no es correcta");
+				session.invalidate();
+				Log.info("La contraseña no es correcta",nombreUsuario);
+				resultado="FRACASO";
+			    }
 			}
 			else {
+			    	request.setAttribute("mensaje", "El usuario "+ nombreUsuario +" no está registrado");
 				session.invalidate();
 				Log.info("El usuario [%s] no está registrado",nombreUsuario);
 				resultado="FRACASO";

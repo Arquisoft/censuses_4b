@@ -1,6 +1,5 @@
 @CHARSET "ISO-8859-1";
 
-
 h1 {
 	font-size: 30.5px;
 	font-weight: 300;
@@ -68,7 +67,8 @@ input,button {
 	height: 100%;
 	background: -webkit-linear-gradient(top, rgba(146, 135, 187, 0.8) 0%,
 		rgba(0, 0, 0, 0.6) 100%);
-	background: linear-gradient(to bottom, rgba(135, 186, 187, 0.8) 0%, rgba(0, 0, 0, 0.77) 100%);
+	background: linear-gradient(to bottom, rgba(135, 186, 187, 0.8) 0%,
+		rgba(0, 0, 0, 0.77) 100%);
 	-webkit-transition: opacity 0.1s, -webkit-transform 0.3s
 		cubic-bezier(0.17, -0.65, 0.665, 1.25);
 	transition: opacity 0.1s, -webkit-transform 0.3s
@@ -209,35 +209,32 @@ input[name=passwd2] {
 	color: #FDFCFD;
 }
 
-
-
-td input[type=text] , td input[type=password]   {
-     margin-left: 7rem;
-    border: none;
-    width: 60%;
-    padding: 10px 20px;
-    display: block;
-    height: 15px;
-    border-radius: 20px;
-    background: rgba(255, 255, 255, 0.28);
-    border: 2px solid rgba(255, 255, 255, 0);
-    overflow: hidden;
-    margin-top: 15px;
-    transition: all 0.5s ease-in-out;
-    margin-top: 5rem;
+td input[type=text],td input[type=password] {
+	margin-left: 7rem;
+	border: none;
+	width: 60%;
+	padding: 10px 20px;
+	display: block;
+	height: 15px;
+	border-radius: 20px;
+	background: rgba(255, 255, 255, 0.28);
+	border: 2px solid rgba(255, 255, 255, 0);
+	overflow: hidden;
+	margin-top: 15px;
+	transition: all 0.5s ease-in-out;
+	margin-top: 5rem;
 }
 
-td input[type=text]:focus, td input[type=password]:focus {
-  outline: 0;
-  border: 2px solid rgba(255, 255, 255, 0.5);
-  border-radius: 20px;
-  background: rgba(0, 0, 0, 0);
+td input[type=text]:focus,td input[type=password]:focus {
+	outline: 0;
+	border: 2px solid rgba(255, 255, 255, 0.5);
+	border-radius: 20px;
+	background: rgba(0, 0, 0, 0);
 }
 
-td input[type=text] :focus + span, , td input[type=password]:focus +span {
-  opacity: 0.6;
+td input[type=text] :focus+span, , td input[type=password]:focus+span {
+	opacity: 0.6;
 }
-
 
 td input[name=nombre] {
 	margin-top: 2rem;
@@ -295,6 +292,15 @@ td input[name=passwd2] {
 
 .login_id {
 	margin-top: 2rem;
+	margin-left: 12.5rem;
+	font-size: 15.5px;
+	font-weight: 300;
+	color: #eee;
+	position: absolute;
+}
+
+.login_passwd {
+	margin-top: 10rem;
 	margin-left: 12.5rem;
 	font-size: 15.5px;
 	font-weight: 300;
@@ -395,10 +401,20 @@ input[name=volver_atras] {
 	color: #fff;
 	font-size: 70px;
 	background: transparent;
-    margin-top: -4rem;
-    margin-right: 40rem;
+	margin-top: -4rem;
+	margin-right: 40rem;
 }
 
+td input[name=passwdUsuario] {
+	margin-top: 12.5rem;
+	margin-left: 7.5rem;
+	font-size: 15.5px;
+	font-weight: 300;
+	color: #eee;
+	position: absolute;
+	color: #FDFCFD;
+	background: rgba(255, 255, 255, 0.28);
+}
 
 @
 -webkit-keyframes animatePath {to { stroke-dashoffset:0;

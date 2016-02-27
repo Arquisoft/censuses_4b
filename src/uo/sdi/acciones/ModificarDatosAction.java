@@ -21,6 +21,7 @@ public class ModificarDatosAction implements Accion {
 	String passwd = request.getParameter("passwdAntigua");
 	String nuevaPasswd = request.getParameter("passwd");
 	String nuevaPasswd2 = request.getParameter("passwd2");
+	
 	HttpSession session = request.getSession();
 	User usuario = ((User) session.getAttribute("user"));
 
@@ -79,6 +80,7 @@ public class ModificarDatosAction implements Accion {
 	    }else{
 		request.setAttribute("mensaje", "Las contraseñas no coinciden");
 	    }
+	    
 	}
 
 	return "EXITO";

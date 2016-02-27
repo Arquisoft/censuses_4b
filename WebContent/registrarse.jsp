@@ -1,5 +1,5 @@
 <%@ page contentType="text/html" pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
 <html>
 <link rel="stylesheet" type="text/css" href="css/style.css" />
@@ -72,10 +72,12 @@
 					<div class="reg_mensaje">
 						<center>
 							<c:if test="${requestScope.mensaje!=null}">
-								<c:out value="${requestScope.mensaje}"/>
+								<c:out value="${requestScope.mensaje}" />
 							</c:if>
 						</center>
 					</div>
+					<input type="button" class="icono_return" onclick="history.back()"
+						name="volver_atras" value="&#8617;">
 				</div>
 			</div>
 		</div>

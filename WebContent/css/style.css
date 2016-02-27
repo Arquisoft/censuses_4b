@@ -391,6 +391,15 @@ td input[name=passwd2] {
 	font-size: 15px;
 }
 
+input[name=volver_atras] {
+	color: #fff;
+	font-size: 70px;
+	background: transparent;
+    margin-top: -4rem;
+    margin-right: 40rem;
+}
+
+
 @
 -webkit-keyframes animatePath {to { stroke-dashoffset:0;
 	

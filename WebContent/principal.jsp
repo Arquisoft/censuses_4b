@@ -67,6 +67,6 @@
 	Es Vd el usuario número: ${contador}
 	
 	<br/><br/>
-	<a id="registrarViaje" href="registrarViaje.jsp">Registrar un viaje</a>
+	<a id="registroViaje" href="registroViaje">Registrar un viaje</a>
 </body>
 </html>

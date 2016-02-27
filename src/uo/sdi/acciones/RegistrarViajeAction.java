@@ -14,7 +14,9 @@ public class RegistrarViajeAction implements Accion {
 	@Override
 	public String execute(HttpServletRequest request,
 			HttpServletResponse response) {
-
+		
+		HttpSession session=request.getSession();
+		
 		if(!comprobarCampos(request))
 			return "FRACASO";
 		
@@ -31,8 +33,6 @@ public class RegistrarViajeAction implements Accion {
 			return "FRACASO";
 		}
 	
-		HttpSession session=request.getSession();
-		
 		User user = ((User) session.getAttribute("user"));
 		
 		Waypoint waypointSalida = new Waypoint(
@@ -100,7 +100,7 @@ public class RegistrarViajeAction implements Accion {
 			return false;
 		}
 		
-		if(request.getParameter("plazasDisponibles").isEmpty()  || Integer.parseInt(request.getParameter("plazasDisponibles")) < 0) {
+		if(request.getParameter("plazasLibres").isEmpty()  || Integer.parseInt(request.getParameter("plazasLibres")) < 0) {
 			Log.debug("Las plazas disponibles están vacías o no son correctas");
 			return false;
 		}
@@ -115,7 +115,7 @@ public class RegistrarViajeAction implements Accion {
 			return false;
 		}
 		
-		if(request.getParameter("plazasMax").isEmpty()  || Integer.parseInt(request.getParameter("plazasMax")) < 0) {
+		if(request.getParameter("plazasTotal").isEmpty()  || Integer.parseInt(request.getParameter("plazasTotal")) < 0) {
 			Log.debug("Las plazas máximas están vacías o no son correctas");
 			return false;
 		}

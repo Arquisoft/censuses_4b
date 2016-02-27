@@ -12,13 +12,16 @@ import alb.util.log.Log;
 public class RegistrarViajeAction implements Accion {
 
 	@Override
-	public String execute(HttpServletRequest request,
+	public String execute(HttpServletRequest request, 
 			HttpServletResponse response) {
 		
+	    	String resultado ="";
 		HttpSession session=request.getSession();
 		
-		if(!comprobarCampos(request))
-			return "FRACASO";
+		if(!comprobarCampos(request)){
+		    	resultado ="FRACASO";
+			return resultado;
+		}
 		
 		Date arrivalDate, departureDate, closingDate;
 		
@@ -30,7 +33,8 @@ public class RegistrarViajeAction implements Accion {
 			
 		} catch (Exception e) {
 			Log.debug("Las fechas introducidas no tienen el formato correcto");
-			return "FRACASO";
+			resultado="FRACASO";
+			return resultado;
 		}
 	
 		User user = ((User) session.getAttribute("user"));
@@ -77,7 +81,9 @@ public class RegistrarViajeAction implements Accion {
 		Log.info("Se ha registrado un viaje: \n" + trip.toString() + "\n en "
 				+ "el que el usuario " + user.getLogin() + " es el promotor");
 		
-		return "EXITO";
+		resultado="EXITO";
+		Log.info("RESULTADO DE REGISTRARACTION  " + resultado);
+		return resultado;
 	}
 
 	private boolean comprobarCampos(HttpServletRequest request) {

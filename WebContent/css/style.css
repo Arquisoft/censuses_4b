@@ -405,6 +405,7 @@ input[name=volver_atras] {
 	background: transparent;
 	margin-top: -4rem;
 	margin-right: 40rem;
+	cursor:pointer;
 }
 
 td input[name=passwdUsuario] {

@@ -12,7 +12,7 @@
 
 		<ul id="menu">
 			<li><a href="listarViajes">Lista de viajes</a></li>
-			<li><a href="registrarViaje">Registrar
+			<li><a href="registroViaje">Registrar
 					viaje</a></li>
 		</ul>
 

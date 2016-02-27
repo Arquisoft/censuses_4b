@@ -104,6 +104,7 @@ public class Controlador extends javax.servlet.http.HttpServlet {
 		Map<String,Accion> mapaRegistrado=new HashMap<String,Accion>();
 		mapaRegistrado.put("modificarDatos", new ModificarDatosAction());
 		mapaRegistrado.put("registroViaje", new RegistroViajeAction());
+		mapaRegistrado.put("listarViajes", new ListarViajesAction());
 		mapaRegistrado.put("registrarViaje", new RegistrarViajeAction());
 		mapaRegistrado.put("modificarViaje", new ModificarViajeAction());
 		mapaRegistrado.put("eliminarViaje", new EliminarViajeAction());

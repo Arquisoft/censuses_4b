@@ -29,5 +29,8 @@
 	</table>
 	<br/>	
 	Es Vd el usuario número: ${contador}
+	
+	<br/><br/>
+	<a id="registrarViaje" href="registrarViaje.jsp">Registrar un viaje</a>
 </body>
 </html>

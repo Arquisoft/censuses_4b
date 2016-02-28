@@ -102,8 +102,17 @@
 			<td>Comentarios</td>
 			<td>${trip.comments}</td>
 		</tr>
+		<tr>
+			<td>Promotor</td>
+			<td>${user.name}</td>
+		</tr>
 		
 	</table>
+	
+	<br>
+	<center>
+		<a href="solicitarViaje">Solicitar viaje</a>
+	</center>
 	
 </body>
 </html>

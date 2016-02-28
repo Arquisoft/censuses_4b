@@ -2,5 +2,9 @@ package uo.sdi.model;
 
 public enum SeatStatus {
 	ACCEPTED,
-	EXCLUDED
+	EXCLUDED,
+	PENDIENTE,
+	PROMOTOR,
+	SIN_PLAZA
+
 }

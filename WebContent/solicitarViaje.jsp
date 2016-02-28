@@ -8,31 +8,8 @@
 </head>
 <body>
 
-	<h1 align="center">Detalles del viaje ${trip.departure.city} - ${trip.destination.city}</h1>
+	<h1 align="center">Plaza  del viaje ${trip.departure.city} - ${trip.destination.city}</h1>
 
-	<table border="1" align="center">
-			<tr>
-				<th>ID viaje</th>
-				<th>Origen</th>
-				<th>Destino</th>
-				<th>Fecha</th>
-				<th>Estado</th>
-			</tr>
-		<c:forEach var="entry" items="${listaViajes}" varStatus="i">
-			<tr id="item_${i.index}">
-				<td>${trip.id}</td>
-				<td>${trip.departure.city}</td>
-				<td>${trip.destination.city}</td>
-				<td>${trip.departureDate}</td>
-				<td>${seat.seatstatus}</td>
-			</tr>
-		</c:forEach>
-	</table>
-	
-	<br>
-	<center>
-		<a href="solicitarViaje">Solicitar viaje</a>
-	</center>
 	
 </body>
 </html>

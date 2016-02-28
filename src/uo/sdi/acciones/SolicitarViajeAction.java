@@ -23,18 +23,20 @@ public class SolicitarViajeAction implements Accion {
 	public String execute(HttpServletRequest request,
 			HttpServletResponse response) {
 	    
-	    	Trip trip;
-	    	Seat seat;
+	    Trip trip;
+	    Seat seat;
 		Long id = Long.parseLong(request.getParameter("id"));
 					
 		try {
-		    	HttpSession session=request.getSession();
+		    	
+			HttpSession session=request.getSession();
 			trip = PersistenceFactory.newTripDao().findById(id);
 			User user = (User) session.getAttribute("user");
 			seat = PersistenceFactory.newSeatDao().findByUserAndTrip(user.getId(), id);	
 			
 			request.setAttribute("trip", trip);
 			request.setAttribute("seat", seat);
+			
 		}
 		catch (Exception e) {
 			Log.error("Algo ha ocurrido obteniendo el viaje");

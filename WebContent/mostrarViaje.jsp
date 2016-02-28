@@ -111,7 +111,7 @@
 	
 	<br>
 	<center>
-		<a href="solicitarViaje">Solicitar viaje</a>
+		<a href="solicitarViaje?id=${trip.id}">Solicitar viaje</a>
 	</center>
 	
 </body>

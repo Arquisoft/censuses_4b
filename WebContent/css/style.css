@@ -21,22 +21,7 @@ html,body {
 	overflow: hidden;
 }
 
-svg {
-	display: inline-block;
-	width: 2rem;
-	height: 2rem;
-	overflow: visible;
-}
 
-.svg-icon {
-	cursor: pointer;
-}
-
-.svg-icon path {
-	stroke: rgba(255, 255, 255, 0.9);
-	fill: none;
-	stroke-width: 1;
-}
 
 input,button {
 	outline: none;
@@ -92,32 +77,6 @@ input,button {
 	height: 50%;
 	padding: 1.5rem 2.5rem;
 	text-align: center;
-}
-
-.login__row {
-	height: 10rem;
-	padding-top: 4rem;
-	border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-}
-
-.login__icon {
-	margin-bottom: -0.4rem;
-	margin-right: 20rem;
-	margin-top: 2rem;
-}
-
-.login__icon.name path {
-	stroke-dasharray: 73.50196075439453;
-	stroke-dashoffset: 73.50196075439453;
-	-webkit-animation: animatePath 2s 0.5s forwards;
-	animation: animatePath 2s 0.5s forwards;
-}
-
-.login__icon.pass path {
-	stroke-dasharray: 92.10662841796875;
-	stroke-dashoffset: 92.10662841796875;
-	-webkit-animation: animatePath 2s 0.5s forwards;
-	animation: animatePath 2s 0.5s forwards;
 }
 
 .login_registrarse a {

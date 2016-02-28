@@ -31,7 +31,7 @@ public class ValidarseAction implements Accion {
 				Log.info("El usuario [%s] ha iniciado sesión",nombreUsuario);
 			}
 			else {
-			    	request.setAttribute("mensaje", "El usuario "+ nombreUsuario +" no está registrado");
+			    request.setAttribute("mensaje", "El usuario "+ nombreUsuario +" no ha podido iniciar sesión");
 				session.invalidate();
 				Log.info("El usuario [%s] no está registrado",nombreUsuario);
 				resultado="FRACASO";

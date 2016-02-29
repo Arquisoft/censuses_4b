@@ -38,9 +38,9 @@ public class CancelarViajeAction implements Accion {
 		if (!trip.getPromoterId().equals(user.getId())) {
 		    if (trip.getStatus().equals(TripStatus.OPEN)) {
 			if (seat.getStatus().equals(SeatStatus.PENDIENTE)
-				|| seat.getStatus().equals(SeatStatus.ACCEPTED)) {
+				|| seat.getStatus().equals(SeatStatus.ADMITIDO)) {
 
-			    seat.setStatus(SeatStatus.EXCLUDED);
+			    seat.setStatus(SeatStatus.EXCLUIDO);
 			    PersistenceFactory.newSeatDao().update(seat);
 
 			    request.setAttribute(

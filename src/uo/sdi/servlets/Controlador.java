@@ -102,6 +102,7 @@ public class Controlador extends javax.servlet.http.HttpServlet {
 		mapaDeAcciones.put("PUBLICO", mapaPublico);
 		
 		Map<String,Accion> mapaRegistrado=new HashMap<String,Accion>();
+		mapaRegistrado.put("validarse", new ValidarseAction());
 		mapaRegistrado.put("modificarDatos", new ModificarDatosAction());
 		mapaRegistrado.put("registroViaje", new RegistroViajeAction());
 		mapaRegistrado.put("listarViajes", new ListarViajesAction());
@@ -147,6 +148,7 @@ public class Controlador extends javax.servlet.http.HttpServlet {
 		// Mapa de navegación de usuarios registrados
 		resJSP.put("EXITO","/principal.jsp");
 		opcionResJSP.put("validarse", resJSP);
+		
 		resJSP=new HashMap<String, String>();
 		resJSP.put("EXITO","/principal.jsp");
 		opcionResJSP.put("modificarDatos", resJSP);

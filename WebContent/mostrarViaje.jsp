@@ -107,16 +107,6 @@
 			</tr>
 
 
-			<c:forEach var="entry" items="${mapseat}" varStatus="i">
-				<c:forEach var="entry2" items="${entry.value}" varStatus="i">
-					<tr>
-						<td>Usuario ${entry2.key}</td>
-						<td>${entry2.value.login}</td>
-					</tr>
-				</c:forEach>
-			</c:forEach>
-
-
 		</table>
 
 		<br>
@@ -124,9 +114,7 @@
 
 		<center>
 			<p class="enlaces_plaza_viaje">
-				<a href="solicitarViaje?id=${trip.id}">Solicitar viaje </a> &nbsp;
-				&nbsp; &nbsp; <a href="cancelarViaje?id=${trip.id}">Cancelar
-					viaje</a>
+				<a href="solicitarViaje?id=${trip.id}">Solicitar viaje </a>
 			</p>
 		</center>
 

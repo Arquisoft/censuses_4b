@@ -48,6 +48,10 @@ table {
 	background-color: rgba(238, 238, 238, 0.67);
 }
 
+ .tabla_misViajes{
+	width: 50%;
+}
+
 td,th {
 	padding: 3px;
 	text-align: left;
@@ -89,4 +93,8 @@ input[name=volver_atras] {
 	cursor: pointer;
 	border: none;
 	outline: none;
+}
+
+.check a{
+	font-size:25px;
 }

@@ -1,9 +1,5 @@
 package uo.sdi.acciones;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -34,8 +30,6 @@ public class SolicitarViajeAction implements Accion {
 		id);
 
 	request.setAttribute("trip", trip);
-	Map<String, Map<String,User>> mapseat = new HashMap<String, Map<String,User>>();
-	Seat seatmostrarViaje;
 
 	try {
 
@@ -101,21 +95,6 @@ public class SolicitarViajeAction implements Accion {
 			user.getLogin());
 		resultado = "FRACASO";
 	    }
-
-	    List<User> users = PersistenceFactory.newUserDao().findAll();
-	    int contador=0;
-	    for (User u : users) {
-		seatmostrarViaje=null;
-		seatmostrarViaje = PersistenceFactory.newSeatDao()
-			.findByUserAndTrip(u.getId(), id);
-		if (seatmostrarViaje != null) {
-		    Map<String, User> m = new HashMap<String, User>();
-		    m.put(seatmostrarViaje.getStatus().toString(), u);
-		    mapseat.put(contador +"", m);
-		    contador++;
-		}
-	    }
-	    request.setAttribute("mapseat", mapseat);
 
 	} catch (Exception e) {
 	    Log.error("Algo ha ocurrido solicitando la plaza");

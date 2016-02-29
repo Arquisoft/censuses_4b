@@ -15,4 +15,5 @@ Privado:
 - Comentar y puntuar viaje
 - Confirmar pasajeros de un viaje (sólo promotor)
 - Registrar nuevo viaje (sólo promotor) ✓
-- Acceder al sistema de notificaciones
+- Acceder al sistema de notificaciones (no es para esta entrega)
+- Cerrar sesión ✓

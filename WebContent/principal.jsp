@@ -52,9 +52,9 @@
 					<td class="principal_passwd">Contraseña:</td>
 					<td id="passwd"><form action="modificarDatos" method="POST">
 							<input type="password" name="passwdAntigua" size="10" value="">
-							<label for="nombreContraseña">Nombre contraseña: </label> <input
+							<label for="nombrePass">Nueva contraseña: </label> <input
 								type="password" name="passwd" size="10" value=""> <label
-								for="repetirContraseña">Repita su contraseña: </label> <input
+								for="repetirPass">Repita su contraseña: </label> <input
 								type="password" name="passwd2" size="10" value=""> <input
 								type="submit" value="Modificar">
 						</form></td>

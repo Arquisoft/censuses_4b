@@ -66,7 +66,7 @@ ul li a:last-child {
 }
 
 ul li a:hover,label[for=toggle]:hover {
-	color: hsl(0, 0%, 90%);
+	color: hsl(164, 80%, 42%);
 	text-shadow: 0 0 1px #fff;
 }
 
@@ -274,7 +274,7 @@ td[id=passwd] input[value=Modificar]{
 	margin-top:1rem
 }
 
-label[for=nombreContraseña]{
+label[for=nombrePass]{
 	margin-top: 1rem;
 	margin-left: 10rem;
 	font-size: 15.5px;
@@ -283,7 +283,7 @@ label[for=nombreContraseña]{
 	position: absolute;
 }
 
-label[for=repetirContraseña]{
+label[for=repetirPass]{
 	margin-top: 1rem;
 	margin-left:10rem;
 	font-size: 15.5px;

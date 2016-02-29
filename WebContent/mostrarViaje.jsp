@@ -102,16 +102,34 @@
 			<td>Comentarios</td>
 			<td>${trip.comments}</td>
 		</tr>
-		<tr>
-			<td>Promotor</td>
-			<td>${user.name}</td>
-		</tr>
+		
+		
+		<c:forEach var="entry" items="${mapseat}" varStatus="i">
+			<c:forEach var="entry2" items="${entry.value}" varStatus="i">
+			<tr>
+				<td>${entry2.key}</td>
+				<td>${entry2.value.login}</td>
+			</tr>
+			</c:forEach>
+		</c:forEach>
+	
 		
 	</table>
 	
 	<br>
+
+	
 	<center>
-		<a href="solicitarViaje?id=${trip.id}">Solicitar viaje</a>
+		<a href="solicitarViaje?id=${trip.id}">Solicitar viaje </a>&nbsp;
+		<a href="cancelarViaje?id=${trip.id}">Cancelar viaje</a>
+	</center>
+
+	
+	<br>
+	<center>
+		<c:if test="${requestScope.mensaje!=null}">
+			<c:out value="${requestScope.mensaje}" />
+		</c:if>
 	</center>
 	
 </body>

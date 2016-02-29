@@ -26,7 +26,6 @@ public class ListarViajesAction implements Accion {
 			Log.error("Algo ha ocurrido obteniendo lista de viajes");
 		}
 		
-		Log.info("ENTRA AL ESTAR REGISTRADO");
 		return "EXITO";
 	}
 	

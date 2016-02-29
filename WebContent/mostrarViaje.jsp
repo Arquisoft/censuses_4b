@@ -110,7 +110,7 @@
 			<c:forEach var="entry" items="${mapseat}" varStatus="i">
 				<c:forEach var="entry2" items="${entry.value}" varStatus="i">
 					<tr>
-						<td>${entry2.key}</td>
+						<td>Usuario ${entry2.key}</td>
 						<td>${entry2.value.login}</td>
 					</tr>
 				</c:forEach>

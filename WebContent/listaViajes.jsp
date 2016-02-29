@@ -28,10 +28,10 @@
 				</tr>
 			</c:forEach>
 		</table>
-		
-		<input type="button" onclick="history.back()"
-						name="volver_atras" value="&#8617;">
-		
+
+		<input type="button" onclick="history.back()" name="volver_atras"
+			value="&#8617;">
+
 	</div>
 </body>
 </html>

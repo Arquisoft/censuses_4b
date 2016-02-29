@@ -93,7 +93,6 @@ input[name=name] {
 	color: #eee;
 	position: absolute;
 	background: transparent;
-	color: #FDFCFD;
 }
 
 input[name=surname] {
@@ -104,7 +103,6 @@ input[name=surname] {
 	color: #eee;
 	position: absolute;
 	background: transparent;
-	color: #FDFCFD;
 }
 
 input[name=email] {
@@ -115,7 +113,6 @@ input[name=email] {
 	color: #eee;
 	position: absolute;
 	background: transparent;
-	color: #FDFCFD;
 }
 
 input[name=passwdAntigua], input[name=passwd], input[name=passwd2] {
@@ -130,7 +127,6 @@ td[id=login] {
 	color: #eee;
 	position: absolute;
 	background: transparent;
-	color: #FDFCFD;
 }
 
 

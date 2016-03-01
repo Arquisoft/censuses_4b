@@ -6,24 +6,39 @@
 <link rel="stylesheet" type="text/css" href="css/styleTable.css" />
 <head>
 <title>ShareMyTrip - Mi listado de viajes</title>
+<script type="text/javascript" src="css/jquery-1.12.1.js"></script>
+<script type="text/javascript" src="css/jquery.tablesorter.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function()
+    {
+        $("#myTable").tablesorter();
+    }
+);
+</script>
 </head>
 <body>
 
 	<div class="fondo">
 		<h1 align="center">Mis viajes</h1>
 
-		<table class="tabla_misViajes" border="1" align="center">
+		<table class="tabla_misViajes" border="1" align="center" id="myTable">
+		<thead>
 			<tr>
+				<th>Detalles</th>
 				<th>Origen</th>
 				<th>Destino</th>
-				<th>Fecha de salida</th>
-				<th>Fecha de llegada</th>
+				<th>Salida</th>
+				<th>Llegada</th>
 				<th>Usuario</th>
-				<th>Cancelar viaje</th>
+				<th>Cancelar</th>
 			</tr>
+		</thead>
+		<tbody>
 			<c:forEach var="entry" items="${mapViajes}" varStatus="i">
 				<c:forEach var="entry2" items="${entry.value}" varStatus="i">
 					<tr id="item_${i.index}">
+						<td><a href="mostrarViaje?id=${entry2.value.id}">Detalles</a></td>
 						<td>${entry2.value.departure.city}</td>
 						<td>${entry2.value.destination.city}</td>
 						<td>${entry2.value.departureDate}</td>
@@ -34,6 +49,7 @@
 					</tr>
 				</c:forEach>
 			</c:forEach>
+			</tbody>
 		</table>
 
 		<div class="mostrar_viaje_mensaje">

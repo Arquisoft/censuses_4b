@@ -11,9 +11,11 @@
 <body>
 	<div class="fondo">
 		<ul id="menu">
-			<li><a href="listarViajes">Lista de viajes</a></li>
+			<li><a href="listarViajes">Viajes ofertados</a></li>
+			<li><a href="historialViajes">Historial de viajes</a></li>
 			<li><a href="mostrarMisViajes">Mis viajes</a></li>
 			<li><a href="registroViaje">Registrar viaje</a></li>
+			<li><a href="solicitudes">Solicitudes</a></li>
 			<li><a href="validarse"> Cerrar Sesión</a></li>
 		</ul>
 

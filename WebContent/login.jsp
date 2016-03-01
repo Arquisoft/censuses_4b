@@ -55,6 +55,10 @@
 						<p class="login_listarViajes">
 							<a id="listarViajes" href="listarViajes">Lista de viajes</a>
 						</p>
+						<br>
+						<p class="login_listarViajes">
+							<a id="historialViajes" href="historialViajes">Historial de viajes</a>
+						</p>
 					</center>
 				</div>
 			</div>

@@ -14,7 +14,9 @@
 					<h1>Registrar viaje</h1>
 				</center>
 				<hr>
-				<br>
+				<br><c:if test="${mensajeViaje != null}">
+					<center><c:out value="${requestScope.mensajeViaje}" /></center>
+				</c:if><br/>
 				<table align="center">
 					<tr>
 						<td class="ciudad_salida">Ciudad de SALIDA:</td>

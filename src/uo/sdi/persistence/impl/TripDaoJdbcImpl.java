@@ -164,5 +164,4 @@ public class TripDaoJdbcImpl implements TripDao {
 				new TripMapper(),
 				id, arrivalDate);
 	}
-
 }

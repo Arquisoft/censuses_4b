@@ -79,4 +79,28 @@ public class SeatDaoJdbcImpl implements SeatDao {
 			);
 	}
 
+	@Override
+	public Seat findById(Long idSeat) {
+		return jdbcTemplate.queryForObject(
+				"SEAT_FIND_BY_ID", 
+				new SeatMapper(), 
+				idSeat
+			);
+	}
+
+	@Override
+	public void aceptarPlaza(Long idTrip, Long idUsuario) {
+		jdbcTemplate.execute("SEAT_ACEPTAR_PLAZA", 
+				idTrip, 
+				idUsuario
+			);
+	}
+
+	@Override
+	public void rechazarPlaza(Long idTrip, Long idUsuario) {
+		jdbcTemplate.execute("SEAT_RECHAZAR_PLAZA", 
+				idTrip, 
+				idUsuario
+			);
+	}
 }

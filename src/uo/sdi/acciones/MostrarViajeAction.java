@@ -17,7 +17,7 @@ public class MostrarViajeAction implements Accion {
     @Override
     public String execute(HttpServletRequest request,
 	    HttpServletResponse response) {
-
+    	
 	Trip trip;
 	Seat seat;
 	Long id = Long.parseLong(request.getParameter("id"));

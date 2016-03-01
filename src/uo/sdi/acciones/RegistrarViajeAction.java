@@ -30,8 +30,16 @@ public class RegistrarViajeAction implements Accion {
 			arrivalDate = new SimpleDateFormat("dd/MM/yyyy HH:mm").parse(request.getParameter("fechaSalida"));
 			departureDate = new SimpleDateFormat("dd/MM/yyyy HH:mm").parse(request.getParameter("fechaLlegada"));
 			closingDate = new SimpleDateFormat("dd/MM/yyyy HH:mm").parse(request.getParameter("fechaLimite"));
+						
+			if(!closingDate.before(departureDate) || !departureDate.before(arrivalDate)) {
+				request.setAttribute("mensajeViaje", "Las fechas introducidas tienen que tener orden cronológico");
+				Log.debug("Las fechas introducidas tienen que tener orden cronológico");
+				resultado="FRACASO";
+				return resultado;
+			}
 			
 		} catch (Exception e) {
+			request.setAttribute("mensajeViaje", "Las fechas introducidas no tienen el formato correcto");
 			Log.debug("Las fechas introducidas no tienen el formato correcto");
 			resultado="FRACASO";
 			return resultado;
@@ -78,11 +86,13 @@ public class RegistrarViajeAction implements Accion {
 				
 		PersistenceFactory.newTripDao().save(trip);
 		
+		request.setAttribute("mensajeViaje", "Se ha registrado un viaje: \n" + trip.getDeparture().getCity() + "-" + trip.getDestination().getCity() + "\n en "
+				+ "el que el usuario " + user.getLogin() + " es el promotor");
 		Log.info("Se ha registrado un viaje: \n" + trip.toString() + "\n en "
 				+ "el que el usuario " + user.getLogin() + " es el promotor");
 		
 		resultado="EXITO";
-		Log.info("RESULTADO DE REGISTRARACTION  " + resultado);
+		Log.info("RESULTADO DEL REGISTRO:  " + resultado);
 		return resultado;
 	}
 
@@ -93,6 +103,8 @@ public class RegistrarViajeAction implements Accion {
 				request.getParameter("provinciaSalida").isEmpty() ||
 				request.getParameter("paisSalida").isEmpty() ||
 				request.getParameter("CPSalida").isEmpty()) {
+			
+			request.setAttribute("mensajeViaje", "Alguno de los campos relacionados con la salida no ha sido rellenado");
 			Log.debug("Alguno de los campos relacionados con la salida no ha sido rellenado");
 			return false;
 		}
@@ -102,26 +114,31 @@ public class RegistrarViajeAction implements Accion {
 				request.getParameter("provinciaLlegada").isEmpty() ||
 				request.getParameter("paisLlegada").isEmpty() ||
 				request.getParameter("CPLlegada").isEmpty()) {
+			request.setAttribute("mensajeViaje", "Alguno de los campos relacionados con la llegada no ha sido rellenado");
 			Log.debug("Alguno de los campos relacionados con la llegada no ha sido rellenado");
 			return false;
 		}
 		
 		if(request.getParameter("plazasLibres").isEmpty()  || Integer.parseInt(request.getParameter("plazasLibres")) < 0) {
+			request.setAttribute("mensajeViaje", "Las plazas disponibles están vacías o no son correctas");
 			Log.debug("Las plazas disponibles están vacías o no son correctas");
 			return false;
 		}
 		
 		if(request.getParameter("comentarios").isEmpty()) {
+			request.setAttribute("mensajeViaje", "El campo de comentarios no ha sido rellenado");
 			Log.debug("El campo de comentarios no ha sido rellenado");
 			return false;
 		}
 		
 		if(request.getParameter("coste").isEmpty() || Integer.parseInt(request.getParameter("coste")) < 0) {
+			request.setAttribute("mensajeViaje", "El campo de coste no ha sido rellenado o no es correcto");
 			Log.debug("El campo de coste no ha sido rellenado o no es correcto");
 			return false;
 		}
 		
 		if(request.getParameter("plazasTotal").isEmpty()  || Integer.parseInt(request.getParameter("plazasTotal")) < 0) {
+			request.setAttribute("mensajeViaje", "Las plazas máximas están vacías o no son correctas");
 			Log.debug("Las plazas máximas están vacías o no son correctas");
 			return false;
 		}

@@ -11,12 +11,12 @@
 <body>
 	<div class="fondo">
 		<ul id="menu">
-			<li><a href="listarViajes">Viajes ofertados</a></li>
-			<li><a href="historialViajes">Historial de viajes</a></li>
-			<li><a href="mostrarMisViajes">Mis viajes</a></li>
-			<li><a href="registroViaje">Registrar viaje</a></li>
-			<li><a href="solicitudes">Solicitudes</a></li>
-			<li><a href="validarse"> Cerrar Sesión</a></li>
+			<li><a id="listarViajes" href="listarViajes">Viajes ofertados</a></li>
+			<li><a id="historialViajes" href="historialViajes">Historial de viajes</a></li>
+			<li><a id="mostrarMisViajes" href="mostrarMisViajes">Mis viajes</a></li>
+			<li><a id="registroViaje" href="registroViaje">Registrar viaje</a></li>
+			<li><a id="solicitudes" href="solicitudes">Solicitudes</a></li>
+			<li><a id="validarse" href="validarse"> Cerrar Sesión</a></li>
 		</ul>
 
 		<div class="contenedor_inicio">

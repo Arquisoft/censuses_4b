@@ -111,6 +111,9 @@ public class Controlador extends javax.servlet.http.HttpServlet {
 		mapaRegistrado.put("solicitarViaje", new SolicitarViajeAction());
 		mapaRegistrado.put("cancelarViaje", new CancelarViajeAction());
 		mapaRegistrado.put("mostrarMisViajes", new MostrarMisViajesAction());
+		mapaRegistrado.put("solicitudes", new SolicitudesAction());
+		mapaRegistrado.put("aceptarPlaza", new AceptarPlazaAction());
+		mapaRegistrado.put("rechazarPlaza", new RechazarPlazaAction());
 		mapaDeAcciones.put("REGISTRADO", mapaRegistrado);
 	}
 	
@@ -184,6 +187,21 @@ public class Controlador extends javax.servlet.http.HttpServlet {
 		resJSP.put("EXITO","/mostrarMisViajes.jsp");
 		resJSP.put("FRACASO","/principal.jsp");
 		opcionResJSP.put("mostrarMisViajes", resJSP);
+		
+		resJSP=new HashMap<String, String>();
+		resJSP.put("EXITO","/solicitudes.jsp");
+		resJSP.put("FRACASO","/solicitudes.jsp");
+		opcionResJSP.put("solicitudes", resJSP);
+		
+		resJSP=new HashMap<String, String>();
+		resJSP.put("EXITO","/principal.jsp");
+		resJSP.put("FRACASO","/principal.jsp");
+		opcionResJSP.put("aceptarPlaza", resJSP);
+		
+		resJSP=new HashMap<String, String>();
+		resJSP.put("EXITO","/principal.jsp");
+		resJSP.put("FRACASO","/principal.jsp");
+		opcionResJSP.put("rechazarPlaza", resJSP);
 				
 		mapaDeNavegacion.put("REGISTRADO",opcionResJSP);
 	}

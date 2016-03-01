@@ -14,9 +14,7 @@
 					<h1>Registrar viaje</h1>
 				</center>
 				<hr>
-				<br><c:if test="${mensajeViaje != null}">
-					<center><c:out value="${requestScope.mensajeViaje}" /></center>
-				</c:if><br/>
+				
 				<table align="center">
 					<tr>
 						<td class="ciudad_salida">Ciudad de SALIDA:</td>
@@ -137,10 +135,20 @@
 					<input type="submit" value="Registrar Viaje" />
 				</center>
 			</form>
+	
+		</div>
+		
+			<div class="reg_mensaje">
+				<center>
+					<c:if test="${mensajeViaje != null}">
+						<center><c:out value="${requestScope.mensajeViaje}" /></center>
+					</c:if>
+			
+				</center>
+			</div>	
 			
 			<input type="button" onclick="history.back()" name="volver_atras"
 			value="&#8617;">
-		</div>
 	</div>
 </body>
 </html>

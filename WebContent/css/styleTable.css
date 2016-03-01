@@ -18,7 +18,7 @@
 }
 
 #myTable1, #myTable2, #myTable {
-	width: 1000px;
+	width: 1080px;
 }
 
 
@@ -44,7 +44,7 @@ html,body {
 	padding: 0;
 }
 
-.mostrar_viaje_mensaje {
+.mostrar_viaje_mensaje{
 	color: #fff;
 	font-size: 18px;
 	font-weight: bolder;
@@ -118,3 +118,4 @@ input[name=volver_atras] {
 .check a{
 	font-size:25px;
 }
+

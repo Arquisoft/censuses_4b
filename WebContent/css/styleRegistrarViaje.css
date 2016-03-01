@@ -212,3 +212,11 @@ input[name=volver_atras] {
 	border: none;
 	outline: none;
 }
+
+ .reg_mensaje {
+	color: #fff;
+	font-size: 18px;
+	font-weight: bolder;
+	background: rgba(23, 49, 50, 0.8);
+	margin-top:80%;
+ }

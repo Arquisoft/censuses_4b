@@ -25,6 +25,11 @@
 				<th>Rechazar plaza</th>
 			</tr>
 			
+			
+			<c:if test="${mapViajes == null}">
+				<tr><td colspan="9">Sin solicitudes</td></tr>
+			</c:if>
+			
 			<c:forEach var="entry" items="${mapViajes}" varStatus="i">
 				<c:forEach var="entry2" items="${entry.value}" varStatus="j">
 					<tr id="item_${i.index}">
@@ -46,6 +51,8 @@
 			</c:forEach>
 		</table>
 		
+		<h1 align="center">Historial</h1>
+		
 		<table class="tabla_misViajes" border="1" align="center">
 			<tr>
 				<th>Origenes</th>
@@ -55,6 +62,10 @@
 				<th>Estado</th>
 				<th>Promotor</th>
 			</tr>
+			
+			<c:if test="${mapViajesMnp == null}">
+				<tr><td colspan="6">Sin historial</td></tr>
+			</c:if>
 			
 			<c:forEach var="entry" items="${mapViajesMnp}" varStatus="i">
 				<c:forEach var="entry2" items="${entry.value}" varStatus="j">

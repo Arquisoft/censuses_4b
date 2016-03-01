@@ -23,9 +23,15 @@ public class AceptarPlazaAction implements Accion {
 			Trip trip = PersistenceFactory.newTripDao().findById(idTrip);
 
 			Seat seat = PersistenceFactory.newSeatDao().findByUserAndTrip(solicitante.getId(), trip.getId());
-			
+						
 			if(seat.getStatus().equals(SeatStatus.PENDIENTE)) {
 			
+				if(trip.getAvailablePax() == 0) {
+					request.setAttribute("plaza", "Este viaje ya no tiene plazas libres");
+					Log.info("Este viaje ya no tiene plazas libres");
+					return "FRACASO";
+				}
+				
 				int plazas = trip.getAvailablePax() - 1;
 				trip.setAvailablePax(plazas);
 				PersistenceFactory.newTripDao().update(trip);
@@ -44,16 +50,26 @@ public class AceptarPlazaAction implements Accion {
 						}
 					}
 				}
-			} else {
-				Log.info("Ya está aceptada");
+			} 
+			else if(seat.getStatus().equals(SeatStatus.ADMITIDO)){
+				request.setAttribute("plaza", "La plaza ya ha sido aceptada anteriormente");
+				Log.info("La plaza ya ha sido aceptada anteriormente");
+				return "FRACASO";
+			}
+			else {
+				request.setAttribute("plaza", "Esta plaza no se puede confirmar");
+				Log.info("Esta plaza no se puede confirmar");
 				return "FRACASO";
 			}
 
 		} catch (Exception e) {
-			Log.error("Ha habido un problema aceptando plazas");
+			request.setAttribute("plaza", "No se ha podido confirmar la plaza");
+			Log.error("No se ha podido confirmar la plaza");
 			return "FRACASO";
 		}
 
+		request.setAttribute("plaza", "Se ha confirmado con éxito la plaza");
+		Log.info("Se ha confirmado con éxito la plaza");
 		return "EXITO";
 	}
 

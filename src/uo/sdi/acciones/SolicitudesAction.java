@@ -38,7 +38,7 @@ public class SolicitudesAction implements Accion {
 														
 				Trip trip = PersistenceFactory.newTripDao().findById(seat.getTripId());
 				
-				if(user.getId().equals(trip.getPromoterId()) && trip.getAvailablePax() > 0 && (seat.getStatus().equals(SeatStatus.PENDIENTE) || seat.getStatus().equals(SeatStatus.ADMITIDO))) {	// EL usuario es promotor de viajes
+				if(user.getId().equals(trip.getPromoterId()) && !seat.getStatus().equals(SeatStatus.PROMOTOR)) {	// EL usuario es promotor de viajes
 					Map<String, Trip> m = new HashMap<String, Trip>();
 					m.put(seat.getStatus().toString(), trip);
 					mapViajes.put(contador + "", m);

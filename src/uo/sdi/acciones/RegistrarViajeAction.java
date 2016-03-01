@@ -27,8 +27,8 @@ public class RegistrarViajeAction implements Accion {
 		
 		try {
 			
-			arrivalDate = new SimpleDateFormat("dd/MM/yyyy HH:mm").parse(request.getParameter("fechaSalida"));
-			departureDate = new SimpleDateFormat("dd/MM/yyyy HH:mm").parse(request.getParameter("fechaLlegada"));
+			arrivalDate = new SimpleDateFormat("dd/MM/yyyy HH:mm").parse(request.getParameter("fechaLlegada"));
+			departureDate = new SimpleDateFormat("dd/MM/yyyy HH:mm").parse(request.getParameter("fechaSalida"));
 			closingDate = new SimpleDateFormat("dd/MM/yyyy HH:mm").parse(request.getParameter("fechaLimite"));
 						
 			if(!closingDate.before(departureDate) || !departureDate.before(arrivalDate)) {

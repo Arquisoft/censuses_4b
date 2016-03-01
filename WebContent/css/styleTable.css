@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 @CHARSET "ISO-8859-1";
 
 @import url(http://fonts.googleapis.com/css?family=Open+Sans:600,400);
@@ -119,3 +120,140 @@ input[name=volver_atras] {
 	font-size:25px;
 }
 
+=======
+@CHARSET "ISO-8859-1";
+
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:600,400);
+
+
+.header {
+	background-image: url(bg.gif);
+	background-position: right center;
+	background-repeat: no-repeat;
+	cursor: pointer;
+	
+}
+
+.headerSortUp {
+	background-image: url(asc.gif);
+}
+.headerSortDown {
+	background-image:url(desc.gif);
+}
+
+#myTable1, #myTable2, #myTable {
+	width: 1000px;
+}
+
+
+html,body {
+	font-family: 'Open Sans', sans-serif;
+	font-size: 62.5%;
+	height: 100%;
+	overflow: hidden;
+}
+
+.fondo {
+	position: relative;
+	height: 100%;
+	background-image:
+		url("http://40.media.tumblr.com/068b944d01bf888a1c0ea8235f626d7f/tumblr_nb2j1zggdO1sifu07o3_1280.jpg");
+	background-size: cover;
+	overflow: auto;
+}
+
+*,*:before,*:after {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+.mostrar_viaje_mensaje {
+	color: #fff;
+	font-size: 18px;
+	font-weight: bolder;
+	background: rgba(23, 49, 50, 0.8);
+}
+
+h1 {
+	font-size: 30px;
+	font-weight: 300;
+	color: #FFF;
+	text-align: center;
+	margin-bottom: 12px;
+	margin-top: 25px
+}
+
+table {
+	width: 30%;
+	table-layout: fixed;
+	margin: 20px auto;
+	border-style: hidden;
+	background-color: rgba(238, 238, 238, 0.67);
+}
+
+ .tabla_misViajes{
+	width: 50%;
+}
+
+td,th {
+	padding: 3px;
+	text-align: left;
+	font-weight: bolder;
+	font-size: 14px;
+	text-align: center;
+	color: #1F3835;
+}
+
+th {
+	background: rgba(181, 184, 200, 0.53);
+}
+
+::-webkit-scrollbar {
+	width: 6px;
+}
+
+::-webkit-scrollbar-track {
+	-webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+}
+
+::-webkit-scrollbar-thumb {
+	-webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+}
+
+.enlaces_plaza_viaje a {
+	color: #fff;
+	cursor: pointer;
+	font-size: 20px;
+	font-weight: bolder;
+	text-decoration: none;
+}
+
+input[name=volver_atras] {
+	color: #fff;
+	font-size: 70px;
+	background: transparent;
+	margin-left: 5rem;
+	cursor: pointer;
+	border: none;
+	outline: none;
+}
+
+.check a{
+	font-size:25px;
+}
+
+.tablaFiltros {
+	background: none;	
+	width: 800px;
+}
+
+.tablaFiltros th{
+	padding: 10px;
+	background: none;
+}
+
+.tablaFiltros .botonFiltros {
+	padding: 10px;
+}
+>>>>>>> 1ba5f9fbebafacb7a5dc48a1c454a58973a3a451

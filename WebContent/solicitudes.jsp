@@ -6,26 +6,38 @@
 <link rel="stylesheet" type="text/css" href="css/styleTable.css" />
 <head>
 <title>ShareMyTrip - Mi listado de viajes</title>
+<script type="text/javascript" src="css/jquery-1.12.1.js"></script>
+<script type="text/javascript" src="css/jquery.tablesorter.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function()
+    {
+        $("#myTable1").tablesorter();
+        $("#myTable2").tablesorter();
+    }
+);
+</script>
 </head>
 <body>
 
 	<div class="fondo">
 		<h1 align="center">Solicitudes en mis viajes</h1>
 
-		<table class="tabla_misViajes" border="1" align="center">
+		<table class="tabla_misViajes" border="1" align="center" id="myTable1">
+		<thead>
 			<tr>
 				<th>Origen</th>
 				<th>Destino</th>
-				<th>Fecha de salida</th>
-				<th>Fecha de llegada</th>
+				<th>Salida</th>
+				<th>Llegada</th>
 				<th>Plazas libres</th>
 				<th>Usuario</th>
 				<th>Estado</th>
-				<th>Confirmar plaza</th>
-				<th>Rechazar plaza</th>
+				<th>Confirmar</th>
+				<th>Rechazar</th>
 			</tr>
-			
-			
+			</thead>
+		<tbody>
 			<c:if test="${mapViajes == null}">
 				<tr><td colspan="9">Sin solicitudes</td></tr>
 			</c:if>
@@ -49,11 +61,13 @@
 					</tr>
 				</c:forEach>
 			</c:forEach>
+			</tbody>
 		</table>
 		
 		<h1 align="center">Historial</h1>
 		
-		<table class="tabla_misViajes" border="1" align="center">
+		<table class="tabla_misViajes" border="1" align="center" id="myTable2">
+		<thead>
 			<tr>
 				<th>Origenes</th>
 				<th>Destino</th>
@@ -62,7 +76,8 @@
 				<th>Estado</th>
 				<th>Promotor</th>
 			</tr>
-			
+		</thead>
+		<tbody>
 			<c:if test="${mapViajesMnp == null}">
 				<tr><td colspan="6">Sin historial</td></tr>
 			</c:if>
@@ -82,6 +97,7 @@
 					</tr>
 				</c:forEach>
 			</c:forEach>
+		</tbody>
 		</table>
 		
 

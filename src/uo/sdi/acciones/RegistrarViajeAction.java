@@ -30,6 +30,13 @@ public class RegistrarViajeAction implements Accion {
 			arrivalDate = new SimpleDateFormat("dd/MM/yyyy HH:mm").parse(request.getParameter("fechaSalida"));
 			departureDate = new SimpleDateFormat("dd/MM/yyyy HH:mm").parse(request.getParameter("fechaLlegada"));
 			closingDate = new SimpleDateFormat("dd/MM/yyyy HH:mm").parse(request.getParameter("fechaLimite"));
+						
+			if(!closingDate.before(departureDate) || !departureDate.before(arrivalDate)) {
+				request.setAttribute("mensajeViaje", "Las fechas introducidas tienen que tener orden cronológico");
+				Log.debug("Las fechas introducidas tienen que tener orden cronológico");
+				resultado="FRACASO";
+				return resultado;
+			}
 			
 		} catch (Exception e) {
 			request.setAttribute("mensajeViaje", "Las fechas introducidas no tienen el formato correcto");
@@ -79,7 +86,7 @@ public class RegistrarViajeAction implements Accion {
 				
 		PersistenceFactory.newTripDao().save(trip);
 		
-		request.setAttribute("mensajeViaje", "Se ha registrado un viaje: \n" + trip.toString() + "\n en "
+		request.setAttribute("mensajeViaje", "Se ha registrado un viaje: \n" + trip.getDeparture().getCity() + "-" + trip.getDestination().getCity() + "\n en "
 				+ "el que el usuario " + user.getLogin() + " es el promotor");
 		Log.info("Se ha registrado un viaje: \n" + trip.toString() + "\n en "
 				+ "el que el usuario " + user.getLogin() + " es el promotor");

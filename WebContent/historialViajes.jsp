@@ -29,6 +29,8 @@ $(document).ready(function()
 				<th>Origen</th>
 				<th>Destino</th>
 				<th>Plazas libres</th>
+				<th>Opiniones</th>
+				<th>Comentar</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -38,6 +40,8 @@ $(document).ready(function()
 					<td>${entry.departure.city}</td>
 					<td>${entry.destination.city}</td>
 					<td>${entry.availablePax}</td>
+					<td>${entry.comments}</td>
+					<td><a href="comentar">Comentar</a></td>
 				</tr>
 			</c:forEach>
 		</tbody>

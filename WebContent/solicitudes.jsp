@@ -92,11 +92,12 @@ $(document).ready(function()
 				<th>Fecha de llegada</th>
 				<th>Estado</th>
 				<th>Promotor</th>
+				<th>Valoraciones</th>
 			</tr>
 		</thead>
 		<tbody>
 			<c:if test="${mapViajesMnp == null}">
-				<tr><td colspan="6">Sin historial</td></tr>
+				<tr><td colspan="7">Sin historial</td></tr>
 			</c:if>
 			
 			<c:forEach var="entry" items="${mapViajesMnp}" varStatus="i">
@@ -110,7 +111,8 @@ $(document).ready(function()
 						<td>${promotores[i.index].status}</td>
 						
 						<td>${entry2.value.promoterId}</td>
-					
+						<td><a href="comentar?id=${entry2.value.id}">Valoraciones</a></td>
+						
 					</tr>
 				</c:forEach>
 			</c:forEach>
@@ -128,7 +130,10 @@ $(document).ready(function()
 
 		<input type="button" onclick="history.back()" name="volver_atras"
 			value="&#8617;">
-
+	
+		<p align="right">
+			<a href="modificarDatos"><img src="img/inicio.png" width="80" ></a>
+		</p>
 	</div>
 	
 </body>

@@ -47,7 +47,6 @@ $(document).ready(function()
 				<th>Destino</th>
 				<th>Plazas libres</th>
 				<th>Opiniones</th>
-				<th>Comentar</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -58,7 +57,6 @@ $(document).ready(function()
 					<td>${entry.destination.city}</td>
 					<td>${entry.availablePax}</td>
 					<td>${entry.comments}</td>
-					<td><a href="comentar">Comentar</a></td>
 				</tr>
 			</c:forEach>
 		</tbody>
@@ -66,7 +64,10 @@ $(document).ready(function()
 
 		<input type="button" onclick="history.back()" name="volver_atras"
 			value="&#8617;">
-
+			
+		<p align="right">
+			<a href="modificarDatos"><img src="img/inicio.png" width="80" ></a>
+		</p>
 	</div>
 </body>
 </html>

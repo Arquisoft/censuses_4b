@@ -149,6 +149,10 @@
 			
 			<input type="button" onclick="history.back()" name="volver_atras"
 			value="&#8617;">
+			
+			<p align="right">
+			<a href="modificarDatos"><img src="img/inicio.png" width="80" ></a>
+		</p>
 	</div>
 </body>
 </html>

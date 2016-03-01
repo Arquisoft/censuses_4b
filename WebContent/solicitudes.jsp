@@ -21,6 +21,23 @@ $(document).ready(function()
 <body>
 
 	<div class="fondo">
+	
+		<form action="filtro?id=solicitudes" method="post">
+			<table align="center" class="tablaFiltros">
+			<thead>
+				<tr>
+					<th>Origen</th>
+					<th><input type="text" name="origen" align="left"
+									size="15"></th>
+					<th>Destino</th>
+					<th><input type="text" name="destino" align="left"
+									size="15"></th>
+					<th><input type="submit" class="botonFiltros" value="Buscar" /></th>
+				</tr>
+			</thead>
+			</table>
+		</form>
+	
 		<h1 align="center">Solicitudes en mis viajes</h1>
 
 		<table class="tabla_misViajes" border="1" align="center" id="myTable1">

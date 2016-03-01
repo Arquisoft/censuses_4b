@@ -2,6 +2,7 @@
 
 @import url(http://fonts.googleapis.com/css?family=Open+Sans:600,400);
 
+
 .header {
 	background-image: url(bg.gif);
 	background-position: right center;
@@ -117,4 +118,18 @@ input[name=volver_atras] {
 
 .check a{
 	font-size:25px;
+}
+
+.tablaFiltros {
+	background: none;	
+	width: 800px;
+}
+
+.tablaFiltros th{
+	padding: 10px;
+	background: none;
+}
+
+.tablaFiltros .botonFiltros {
+	padding: 10px;
 }

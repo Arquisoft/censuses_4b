@@ -19,9 +19,7 @@ html,body {
 	overflow: hidden;
 }
 
-
-
-input,button  {
+input,button {
 	outline: none;
 	border: none;
 }
@@ -362,7 +360,7 @@ input[name=volver_atras] {
 	background: transparent;
 	margin-top: -5rem;
 	margin-right: 40rem;
-	cursor:pointer;
+	cursor: pointer;
 }
 
 td input[name=passwdUsuario] {
@@ -380,7 +378,6 @@ td input[name=passwdUsuario] {
 -webkit-keyframes animatePath {to { stroke-dashoffset:0;
 	
 }
-
 
 @
 keyframes animatePath {to { stroke-dashoffset:0;

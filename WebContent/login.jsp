@@ -24,28 +24,29 @@
 								<td><input type="text" name="nombreUsuario" align="left"
 									size="15"></td>
 							</tr>
-							
+
 							<tr>
 								<td align="right" class="login_passwd">Su contraseña</td>
-								<td><input type="password" name="passwdUsuario" align="left"
-									size="15"></td>
+								<td><input type="password" name="passwdUsuario"
+									align="left" size="15"></td>
 							</tr>
 						</table>
 						<br>
 						<center>
 							<input type="submit" class="login__submit" value="Enviar" />
 						</center>
-						
+
 					</form>
 					<br>
-					
+
 					<div class="reg_mensaje">
 						<center>
 							<c:if test="${requestScope.mensaje!=null}">
 								<c:out value="${requestScope.mensaje}" />
 							</c:if>
 						</center>
-					</div><br>
+					</div>
+					<br>
 
 					<center>
 						<p class="login_registrarse">

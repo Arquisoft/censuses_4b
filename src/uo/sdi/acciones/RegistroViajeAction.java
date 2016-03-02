@@ -5,11 +5,11 @@ import javax.servlet.http.HttpServletResponse;
 
 public class RegistroViajeAction implements Accion {
 
-	@Override
-	public String execute(HttpServletRequest request,
-			HttpServletResponse response) {
-		
-		return "EXITO";
-	}
+    @Override
+    public String execute(HttpServletRequest request,
+	    HttpServletResponse response) {
+
+	return "EXITO";
+    }
 
 }

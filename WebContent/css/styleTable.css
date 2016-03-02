@@ -2,26 +2,24 @@
 
 @import url(http://fonts.googleapis.com/css?family=Open+Sans:600,400);
 
-
 .header {
 	background-image: url(bg.gif);
 	background-position: right center;
 	background-repeat: no-repeat;
 	cursor: pointer;
-	
 }
 
 .headerSortUp {
 	background-image: url(asc.gif);
 }
+
 .headerSortDown {
-	background-image:url(desc.gif);
+	background-image: url(desc.gif);
 }
 
-#myTable1, #myTable2, #myTable {
+#myTable1,#myTable2,#myTable {
 	width: 1080px;
 }
-
 
 html,body {
 	font-family: 'Open Sans', sans-serif;
@@ -69,7 +67,7 @@ table {
 	background-color: rgba(238, 238, 238, 0.67);
 }
 
- .tabla_misViajes{
+.tabla_misViajes {
 	width: 50%;
 }
 
@@ -116,16 +114,26 @@ input[name=volver_atras] {
 	outline: none;
 }
 
-.check a{
-	font-size:25px;
+img {
+	color: #fff;
+	font-size: 70px;
+	background: transparent;
+	margin-left: 85%;
+	cursor: pointer;
+	border: none;
+	outline: none;
+}
+
+.check a {
+	font-size: 25px;
 }
 
 .tablaFiltros {
-	background: none;	
+	background: none;
 	width: 800px;
 }
 
-.tablaFiltros th{
+.tablaFiltros th {
 	padding: 10px;
 	background: none;
 }
@@ -133,4 +141,3 @@ input[name=volver_atras] {
 .tablaFiltros .botonFiltros {
 	padding: 10px;
 }
-

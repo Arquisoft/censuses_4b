@@ -11,9 +11,8 @@
 
 	<div class="fondo">
 		<h1 align="center">${plaza}</h1>
-		
-		<br/>
-		<br/>
+
+		<br /> <br />
 		<center>
 			<p class="enlaces_plaza_viaje">
 				<a href="solicitudes">Volver a mis Solicitudes</a>
@@ -24,6 +23,6 @@
 		</center>
 
 	</div>
-	
+
 </body>
 </html>

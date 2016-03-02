@@ -17,26 +17,26 @@ public class MostrarViajeAction implements Accion {
     @Override
     public String execute(HttpServletRequest request,
 	    HttpServletResponse response) {
-    	
+
 	Trip trip;
 	Seat seat;
 	Long id = Long.parseLong(request.getParameter("id"));
 
-	Map<String,Map<String, User>> mapseat = new HashMap<String, Map<String, User>>();
+	Map<String, Map<String, User>> mapseat = new HashMap<String, Map<String, User>>();
 
 	try {
 
 	    trip = PersistenceFactory.newTripDao().findById(id);
 	    List<User> users = PersistenceFactory.newUserDao().findAll();
-	    int contador=0;
+	    int contador = 0;
 	    for (User u : users) {
-		seat=null;
+		seat = null;
 		seat = PersistenceFactory.newSeatDao().findByUserAndTrip(
 			u.getId(), id);
 		if (seat != null) {
-		    Map<String, User> m = new HashMap<String, User>();		    
+		    Map<String, User> m = new HashMap<String, User>();
 		    m.put(seat.getStatus().toString(), u);
-		    mapseat.put(contador +"", m);
+		    mapseat.put(contador + "", m);
 		    contador++;
 		}
 	    }

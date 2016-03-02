@@ -11,23 +11,24 @@ import alb.util.log.Log;
 
 public class HistorialViajesAction implements Accion {
 
-	@Override
-	public String execute(HttpServletRequest request,
-			HttpServletResponse response) {
+    @Override
+    public String execute(HttpServletRequest request,
+	    HttpServletResponse response) {
 
-		List<Trip> viajes;
-		
-		try {
-			viajes=PersistenceFactory.newTripDao().findAll();
-			
-			request.setAttribute("listaViajes", viajes);
-			Log.debug("Obtenida lista de viajes conteniendo [%d] viajes (historial) ", viajes.size());
-		}
-		catch (Exception e) {
-			Log.error("Algo ha ocurrido obteniendo lista de viajes (historial)");
-		}
-		
-		return "EXITO";
+	List<Trip> viajes;
+
+	try {
+	    viajes = PersistenceFactory.newTripDao().findAll();
+
+	    request.setAttribute("listaViajes", viajes);
+	    Log.debug(
+		    "Obtenida lista de viajes conteniendo [%d] viajes (historial) ",
+		    viajes.size());
+	} catch (Exception e) {
+	    Log.error("Algo ha ocurrido obteniendo lista de viajes (historial)");
 	}
+
+	return "EXITO";
+    }
 
 }
